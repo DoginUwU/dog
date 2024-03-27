@@ -1,5 +1,7 @@
 #include "scene.hpp"
-#include "cube.hpp"
+#include "fly-camera.hpp"
+#include "world.hpp"
+#include "gl/input.hpp"
 
 using namespace Dog;
 
@@ -9,6 +11,13 @@ class MainScene : public Scene
     {
         Scene::start();
 
-        instantiate(new Cube());
+        FlyCamera *camera = new FlyCamera();
+        instantiate(camera);
+        instantiate(new World(camera));
+    }
+
+    void update(float deltaTime)
+    {
+        Scene::update(deltaTime);
     }
 };
