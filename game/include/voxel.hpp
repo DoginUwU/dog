@@ -45,11 +45,11 @@ public:
         return normal * VOXEL_SIZE;
     }
 
-    static constexpr float VOXEL_SIZE = 0.1f;
+    static constexpr float VOXEL_SIZE = 0.2f;
     static const uint_least8_t CHUNK_SIZE = 6;
     static const uint_least8_t CHUNK_SIZE_Y = 2;
-    static const uint_least8_t RENDER_DISTANCE = 4;
-    static const uint16_t WORLD_SIZE = 100;
+    static const uint_least8_t RENDER_DISTANCE = 12;
+    static const uint16_t WORLD_SIZE = 500;
     static const uint16_t WORLD_SIZE_IN_CHUNK_SIZE = WORLD_SIZE * CHUNK_SIZE;
 };
 #endif

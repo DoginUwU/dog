@@ -16,9 +16,9 @@ namespace Dog
 
     void Scene::update(float deltaTime)
     {
-        for (auto &component : components)
+        for (size_t i = 0; i < components.size(); i++)
         {
-            component->update(deltaTime);
+            components[i]->update(deltaTime);
         }
     }
 

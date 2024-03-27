@@ -44,8 +44,7 @@ void Chunk::createBlock(float x, float y, float z)
     {
         glm::vec3 facePos = glm::vec3(x, y, z) + VoxelData::getCorrectedNormal(VoxelData::faces[p]);
 
-        // TODO: Fix P = 3
-        if (!isBlockVisible(facePos.x, facePos.y, facePos.z) || p == 3)
+        if (!isBlockVisible(facePos.x, facePos.y, facePos.z))
         {
             continue;
         }
