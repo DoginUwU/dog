@@ -10,15 +10,13 @@ namespace Dog
     {
     public:
         Transform transform;
+        Mesh mesh;
 
         Object();
         ~Object();
 
         virtual void start() = 0;
         virtual void update(float deltaTime);
-
-    protected:
-        Mesh mesh;
     };
 }
 #endif

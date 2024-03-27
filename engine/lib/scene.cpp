@@ -28,4 +28,18 @@ namespace Dog
 
         component->start();
     }
+
+    void Scene::destroy(Component *component)
+    {
+        for (size_t i = 0; i < components.size(); i++)
+        {
+            if (components[i].get() == component)
+            {
+                components.erase(components.begin() + i);
+                break;
+            }
+        }
+
+        components.shrink_to_fit();
+    }
 }

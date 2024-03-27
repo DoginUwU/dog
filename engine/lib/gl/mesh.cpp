@@ -43,4 +43,13 @@ namespace Dog
         glBindVertexArray(vao);
         glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
     }
+
+    void Mesh::clear()
+    {
+        vertices.clear();
+        indices.clear();
+
+        vertices.shrink_to_fit();
+        indices.shrink_to_fit();
+    }
 }

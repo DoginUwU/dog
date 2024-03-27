@@ -21,6 +21,7 @@ namespace Dog
         ~Mesh();
 
         void draw();
+        void clear();
 
     protected:
         uint32_t vao;

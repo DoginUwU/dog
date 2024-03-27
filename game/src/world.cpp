@@ -57,3 +57,15 @@ void World::createChunk(uint16_t x, uint16_t z)
 
     Dog::Engine::activeScene->instantiate(chunks[x][z]);
 }
+
+void World::destroyChunk(uint16_t x, uint16_t z)
+{
+    Chunk *chunk = chunks[x][z];
+
+    if (chunk != nullptr)
+    {
+        Dog::Engine::activeScene->destroy(chunk);
+        chunk->mesh.clear();
+        chunks[x][z] = nullptr;
+    }
+}

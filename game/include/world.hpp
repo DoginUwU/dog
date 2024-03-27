@@ -13,7 +13,9 @@ public:
     void start();
     void update(float deltaTime);
     void updateChunkVisibility();
+
     void createChunk(uint16_t x, uint16_t z);
+    void destroyChunk(uint16_t x, uint16_t z);
 
 private:
     Chunk *chunks[VoxelData::WORLD_SIZE][VoxelData::WORLD_SIZE];

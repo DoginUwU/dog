@@ -18,6 +18,7 @@ namespace Dog
         virtual void start();
 
         void instantiate(Component *component);
+        void destroy(Component *component);
 
     private:
         std::vector<std::unique_ptr<Component>> components;

@@ -24,7 +24,7 @@ namespace Dog
 
         glViewport(0, 0, 800, 600);
 
-        // glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
         glEnable(GL_DEPTH_TEST);
 
         Input::init(window);
