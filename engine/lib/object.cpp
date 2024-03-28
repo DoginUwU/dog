@@ -9,6 +9,7 @@ namespace Dog
 
     Object::~Object()
     {
+        mesh.clear();
     }
 
     void Object::update(float deltaTime)
