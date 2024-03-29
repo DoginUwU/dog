@@ -3,6 +3,16 @@
 
 #include <glm/glm.hpp>
 
+enum Direction
+{
+    FRONT,
+    BACK,
+    RIGHT,
+    LEFT,
+    TOP,
+    BOTTOM
+};
+
 class VoxelData
 {
 public:

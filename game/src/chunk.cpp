@@ -1,5 +1,4 @@
 #include "chunk.hpp"
-#include "voxel.hpp"
 
 #include <iostream>
 
@@ -29,9 +28,8 @@ void Chunk::createMesh()
     {
         for (float z = 0; z < VoxelData::CHUNK_SIZE; z += VoxelData::VOXEL_SIZE)
         {
-            glm::vec3 heightPos = glm::vec3(x, 0, z) + transform.getPosition();
-            const float height = perlinNoise->octave2D_01(heightPos.x * 0.05, heightPos.z * 0.05, 6) * VoxelData::CHUNK_SIZE_Y;
-            createBlock(x, height, z);
+            float y = getBlockHeight(x, z);
+            createBlock(x, y, z);
         }
     }
 }
@@ -48,7 +46,7 @@ void Chunk::createBlock(float x, float y, float z)
     {
         glm::vec3 facePos = blockPos + VoxelData::faces[p];
 
-        if (!isFaceVisible(facePos.x, facePos.y, facePos.z))
+        if (!isFaceVisible(facePos.x, facePos.y, facePos.z, static_cast<Direction>(p)))
         {
             continue;
         }
@@ -71,7 +69,7 @@ void Chunk::createBlock(float x, float y, float z)
     }
 }
 
-bool Chunk::isFaceVisible(float x, float y, float z)
+bool Chunk::isFaceVisible(float x, float y, float z, Direction direction)
 {
     if (x < 0 || y < 0 || z < 0)
     {
@@ -83,5 +81,29 @@ bool Chunk::isFaceVisible(float x, float y, float z)
         return false;
     }
 
-    return true;
+    switch (direction)
+    {
+    case FRONT:
+        return getBlockHeight(x, z - VoxelData::VOXEL_SIZE) < y;
+    case BACK:
+        return getBlockHeight(x, z + VoxelData::VOXEL_SIZE) < y;
+    case RIGHT:
+        return getBlockHeight(x + VoxelData::VOXEL_SIZE, z) < y;
+    case LEFT:
+        return getBlockHeight(x - VoxelData::VOXEL_SIZE, z) < y;
+    case TOP:
+        return getBlockHeight(x, z) < y;
+    case BOTTOM:
+        return getBlockHeight(x, z) > y;
+    default:
+        return false;
+    }
+}
+
+float Chunk::getBlockHeight(float x, float z)
+{
+    glm::vec3 heightPos = glm::vec3(x, 0, z) + transform.getPosition();
+    const float y = perlinNoise->octave2D_01(heightPos.x * 0.05, heightPos.z * 0.05, 6) * VoxelData::CHUNK_SIZE_Y;
+
+    return y;
 }
