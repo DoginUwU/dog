@@ -78,7 +78,7 @@ bool Chunk::isFaceVisible(float x, float y, float z, Direction direction)
         return false;
     }
 
-    if (x > VoxelData::CHUNK_SIZE || y > VoxelData::CHUNK_SIZE_Y || z > VoxelData::CHUNK_SIZE)
+    if (x > VoxelData::CHUNK_SIZE || y > VoxelData::CHUNK_SIZE_Y + 1 || z > VoxelData::CHUNK_SIZE)
     {
         return false;
     }
@@ -105,7 +105,7 @@ bool Chunk::isFaceVisible(float x, float y, float z, Direction direction)
 float Chunk::getBlockHeight(float x, float z)
 {
     glm::vec3 heightPos = glm::vec3(x, 0, z) + transform.getPosition();
-    const float y = perlinNoise->octave2D_01(heightPos.x * 0.05, heightPos.z * 0.05, 6) * VoxelData::CHUNK_SIZE_Y;
+    const float y = perlinNoise->octave2D_01(heightPos.x * 0.1, heightPos.z * 0.1, 6) * VoxelData::CHUNK_SIZE_Y;
 
     return y;
 }
