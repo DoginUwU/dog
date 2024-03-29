@@ -6,6 +6,7 @@ Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise)
 {
     this->perlinNoise = perlinNoise;
     this->transform.setPosition(position);
+
     createMesh();
 }
 
@@ -95,8 +96,9 @@ bool Chunk::isFaceVisible(float x, float y, float z, Direction direction)
         return getBlockHeight(x - VoxelData::VOXEL_SIZE, z) < y;
     case TOP:
         return getBlockHeight(x, z) < y;
+    // TODO: Find a way to check bottom face visibility
     case BOTTOM:
-        return getBlockHeight(x, z) > y;
+        return false;
     default:
         return false;
     }

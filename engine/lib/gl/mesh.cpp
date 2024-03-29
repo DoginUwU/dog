@@ -50,7 +50,8 @@ namespace Dog
         vertices.clear();
         indices.clear();
 
-        optimize();
+        vertices.shrink_to_fit();
+        indices.shrink_to_fit();
     }
 }
 
