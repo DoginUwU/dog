@@ -3,14 +3,14 @@
 #include <stdint.h>
 #include <vector>
 
-struct Vertex
-{
-    float position[3];
-    uint_least8_t color[3];
-};
-
 namespace Dog
 {
+    struct Vertex
+    {
+        float position[3];
+        uint_least8_t color[3];
+    };
+
     class Mesh
     {
     public:

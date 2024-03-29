@@ -4,6 +4,8 @@
 #include "perlin_noise.hpp"
 #include "camera.hpp"
 
+#include <vector>
+
 class World : public Dog::Component
 {
 public:
@@ -12,7 +14,7 @@ public:
 
     void start();
     void update(float deltaTime);
-    void updateChunkVisibility();
+    void updateChunksAroundPlayer();
 
     void createChunk(uint16_t x, uint16_t z);
     void destroyChunk(uint16_t x, uint16_t z);
@@ -21,4 +23,5 @@ private:
     Chunk *chunks[VoxelData::WORLD_SIZE][VoxelData::WORLD_SIZE];
     const siv::PerlinNoise perlinNoise{std::random_device()()};
     Dog::Camera *camera;
+    std::vector<Chunk *> activeChunks;
 };

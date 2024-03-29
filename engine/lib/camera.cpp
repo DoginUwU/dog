@@ -17,7 +17,12 @@ namespace Dog
 
     void Camera::start()
     {
-        projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+        aspectRatio = 800.0f / 600.0f;
+        fov = 45.0f;
+        near = 0.1f;
+        far = 100.0f;
+
+        projection = glm::perspective(glm::radians(fov), aspectRatio, near, far);
     }
 
     void Camera::update(float deltaTime)

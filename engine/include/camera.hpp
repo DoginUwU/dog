@@ -14,6 +14,11 @@ namespace Dog
         glm::mat4 projection;
         glm::vec3 position;
 
+        float aspectRatio;
+        float fov;
+        float near;
+        float far;
+
         Camera();
         ~Camera();
 

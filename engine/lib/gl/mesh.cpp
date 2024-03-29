@@ -57,24 +57,24 @@ namespace Dog
 
 void Dog::Mesh::optimize()
 {
-    std::vector<uint32_t> remap(vertices.size());
+    // std::vector<uint32_t> remap(vertices.size());
 
-    size_t vertexCount = meshopt_generateVertexRemap(remap.data(), indices.data(), indices.size(), vertices.data(), vertices.size(), sizeof(Vertex));
+    // size_t vertexCount = meshopt_generateVertexRemap(remap.data(), indices.data(), indices.size(), vertices.data(), vertices.size(), sizeof(Vertex));
 
-    std::vector<Vertex> vertices_copy(vertices.size());
-    std::vector<uint32_t> indices_copy(indices.size());
+    // std::vector<Vertex> vertices_copy(vertices.size());
+    // std::vector<uint32_t> indices_copy(indices.size());
 
-    meshopt_remapVertexBuffer(vertices_copy.data(), vertices.data(), vertices.size(), sizeof(Vertex), remap.data());
-    meshopt_remapIndexBuffer(indices_copy.data(), indices.data(), indices.size(), remap.data());
+    // meshopt_remapVertexBuffer(vertices_copy.data(), vertices.data(), vertices.size(), sizeof(Vertex), remap.data());
+    // meshopt_remapIndexBuffer(indices_copy.data(), indices.data(), indices.size(), remap.data());
 
-    meshopt_optimizeOverdraw(indices_copy.data(), indices_copy.data(), indices.size(), (float *)&(vertices_copy[0].position[0]), vertices_copy.size(), sizeof(Vertex::position), 1.05f);
+    // meshopt_optimizeOverdraw(indices_copy.data(), indices_copy.data(), indices.size(), (float *)&(vertices_copy[0].position[0]), vertices_copy.size(), sizeof(Vertex::position), 1.05f);
 
-    meshopt_optimizeVertexFetch(vertices_copy.data(), indices_copy.data(), indices_copy.size(), vertices_copy.data(), vertices_copy.size(), sizeof(Vertex));
+    // meshopt_optimizeVertexFetch(vertices_copy.data(), indices_copy.data(), indices_copy.size(), vertices_copy.data(), vertices_copy.size(), sizeof(Vertex));
 
-    meshopt_optimizeVertexCache(indices_copy.data(), indices_copy.data(), indices.size(), vertices.size());
+    // meshopt_optimizeVertexCache(indices_copy.data(), indices_copy.data(), indices.size(), vertices.size());
 
-    vertices = vertices_copy;
-    indices = indices_copy;
+    // vertices = vertices_copy;
+    // indices = indices_copy;
 
     vertices.shrink_to_fit();
     indices.shrink_to_fit();

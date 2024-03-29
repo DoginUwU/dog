@@ -1,13 +1,17 @@
 #include "world.hpp"
-
 #include "engine.hpp"
+
+#include <iostream>
+#include <math.h>
 
 World::World(Dog::Camera *camera)
 {
     this->camera = camera;
     // TODO: Remove this :(
     camera->position = glm::vec3(VoxelData::WORLD_SIZE / 2, 1.0f, VoxelData::WORLD_SIZE / 2);
-    createChunk(0, 0);
+
+    // createChunk(0, 0);
+    updateChunksAroundPlayer();
 }
 
 World::~World()
@@ -20,25 +24,49 @@ void World::start()
 
 void World::update(float deltaTime)
 {
-    // updateChunkVisibility();
+    updateChunksAroundPlayer();
 }
 
-void World::updateChunkVisibility()
+void World::updateChunksAroundPlayer()
 {
-    glm::vec3 cameraPosition = camera->position / glm::vec3(VoxelData::CHUNK_SIZE, VoxelData::CHUNK_SIZE_Y, VoxelData::CHUNK_SIZE);
+    glm::vec3 playerPosition = camera->position;
 
-    for (uint16_t x = cameraPosition.x - VoxelData::RENDER_DISTANCE; x < cameraPosition.x + VoxelData::RENDER_DISTANCE; x++)
+    uint16_t playerChunkX = playerPosition.x / VoxelData::CHUNK_SIZE;
+    uint16_t playerChunkZ = playerPosition.z / VoxelData::CHUNK_SIZE;
+
+    uint16_t playerMinChunkX = std::max(0, (int)playerChunkX - VoxelData::RENDER_DISTANCE);
+    uint16_t playerMinChunkZ = std::max(0, (int)playerChunkZ - VoxelData::RENDER_DISTANCE);
+    uint16_t playerMaxChunkX = playerChunkX + VoxelData::RENDER_DISTANCE;
+    uint16_t playerMaxChunkZ = playerChunkZ + VoxelData::RENDER_DISTANCE;
+
+    for (uint16_t x = playerMinChunkX; x < playerMaxChunkX; x++)
     {
-        for (uint16_t z = cameraPosition.z - VoxelData::RENDER_DISTANCE; z < cameraPosition.z + VoxelData::RENDER_DISTANCE; z++)
+        for (uint16_t z = playerMinChunkZ; z < playerMaxChunkZ; z++)
         {
-            Chunk *chunk = chunks[x][z];
+            std::cout << "Chunk: " << x << ", " << z << std::endl;
 
-            if (chunk == nullptr)
+            if (chunks[x][z] == nullptr)
             {
                 createChunk(x, z);
-
-                continue;
+                activeChunks.push_back(chunks[x][z]);
             }
+        }
+    }
+
+    for (auto chunk : activeChunks)
+    {
+        if (chunk == nullptr)
+        {
+            continue;
+        }
+
+        uint16_t chunkX = chunk->transform.getPosition().x / VoxelData::CHUNK_SIZE;
+        uint16_t chunkZ = chunk->transform.getPosition().z / VoxelData::CHUNK_SIZE;
+
+        if (chunkX < playerMinChunkX || chunkX >= playerMaxChunkX || chunkZ < playerMinChunkZ || chunkZ >= playerMaxChunkZ)
+        {
+            destroyChunk(chunkX, chunkZ);
+            activeChunks.erase(std::remove(activeChunks.begin(), activeChunks.end(), chunk), activeChunks.end());
         }
     }
 }
