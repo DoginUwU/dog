@@ -19,7 +19,9 @@ namespace Dog
 
     private:
         Window *window;
+        double previousTime;
         float lastFrame;
+        int frameCount;
 
         void mainLoop();
     };

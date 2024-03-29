@@ -18,6 +18,8 @@ namespace Dog
         }
 
         window = new Window();
+        lastFrame = glfwGetTime();
+        previousTime = lastFrame;
     }
 
     Engine::~Engine()
@@ -54,6 +56,15 @@ namespace Dog
             float currentFrame = glfwGetTime();
             float deltaTime = currentFrame - lastFrame;
             lastFrame = currentFrame;
+
+            frameCount++;
+
+            if (currentFrame - previousTime >= 1.0)
+            {
+                window->setTitle("Dog Engine - " + std::to_string(frameCount) + " FPS");
+                frameCount = 0;
+                previousTime = currentFrame;
+            }
 
             activeScene->update(deltaTime);
             window->update();

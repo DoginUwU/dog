@@ -29,6 +29,7 @@ namespace Dog
         glEnable(GL_CULL_FACE);
         glCullFace(GL_FRONT);
         glEnable(GL_BLEND);
+        glfwSwapInterval(0);
 
         Input::init(window);
     }
@@ -70,6 +71,11 @@ namespace Dog
         {
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         }
+    }
+
+    void Window::setTitle(std::string title) const
+    {
+        glfwSetWindowTitle(window, title.c_str());
     }
 
     bool Window::shouldClose() const
