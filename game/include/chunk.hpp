@@ -17,5 +17,5 @@ private:
     void createMesh();
     void createBlock(float x, float y, float z);
 
-    bool isBlockVisible(float x, float y, float z);
+    bool isFaceVisible(float x, float y, float z);
 };

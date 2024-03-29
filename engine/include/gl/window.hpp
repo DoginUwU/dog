@@ -9,12 +9,15 @@ namespace Dog
         Window();
         ~Window();
 
-        void update() const;
+        void update();
         void close() const;
+
+        void toggleWireframeMode();
 
         bool shouldClose() const;
 
     private:
         GLFWwindow *window;
+        bool wireframeMode = false;
     };
 }

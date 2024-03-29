@@ -26,6 +26,9 @@ namespace Dog
 
         glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
         glEnable(GL_DEPTH_TEST);
+        glEnable(GL_CULL_FACE);
+        glCullFace(GL_FRONT);
+        glEnable(GL_BLEND);
 
         Input::init(window);
     }
@@ -35,9 +38,14 @@ namespace Dog
         glfwDestroyWindow(window);
     }
 
-    void Window::update() const
+    void Window::update()
     {
         glfwSwapBuffers(window);
+
+        if (Input::isKeyPressed(GLFW_KEY_P))
+        {
+            toggleWireframeMode();
+        }
 
         if (Input::isKeyPressed(GLFW_KEY_ESCAPE))
         {
@@ -48,6 +56,20 @@ namespace Dog
     void Window::close() const
     {
         glfwSetWindowShouldClose(window, true);
+    }
+
+    void Window::toggleWireframeMode()
+    {
+        wireframeMode = !wireframeMode;
+
+        if (wireframeMode)
+        {
+            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        }
+        else
+        {
+            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        }
     }
 
     bool Window::shouldClose() const

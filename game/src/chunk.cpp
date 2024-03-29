@@ -1,6 +1,8 @@
 #include "chunk.hpp"
 #include "voxel.hpp"
 
+#include <iostream>
+
 Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise)
 {
     this->perlinNoise = perlinNoise;
@@ -40,34 +42,36 @@ void Chunk::createBlock(float x, float y, float z)
     uint_least8_t G = rand() % 255;
     uint_least8_t B = 0;
 
+    glm::vec3 blockPos = glm::vec3(x, y, z);
+
     for (int p = 0; p < VoxelData::faces.size(); p++)
     {
-        glm::vec3 facePos = glm::vec3(x, y, z) + VoxelData::getCorrectedNormal(VoxelData::faces[p]);
+        glm::vec3 facePos = blockPos + VoxelData::faces[p];
 
-        if (!isBlockVisible(facePos.x, facePos.y, facePos.z))
+        if (!isFaceVisible(facePos.x, facePos.y, facePos.z))
         {
             continue;
         }
 
         for (uint32_t i = 0; i < 4; i++)
         {
-            glm::vec3 position = VoxelData::getCorrectedNormal(VoxelData::vertices[VoxelData::indices[p][i]]) + glm::vec3(x, y, z);
+            glm::vec3 position = VoxelData::vertices[VoxelData::indices[p][i]] + blockPos;
             mesh.vertices.push_back({{position.x, position.y, position.z},
                                      {R, G, B}});
         }
 
-        mesh.indices.push_back(vertexIndex);
+        mesh.indices.push_back(vertexIndex + 0);
         mesh.indices.push_back(vertexIndex + 1);
         mesh.indices.push_back(vertexIndex + 2);
         mesh.indices.push_back(vertexIndex + 2);
-        mesh.indices.push_back(vertexIndex + 1);
         mesh.indices.push_back(vertexIndex + 3);
+        mesh.indices.push_back(vertexIndex + 0);
 
         vertexIndex += 4;
     }
 }
 
-bool Chunk::isBlockVisible(float x, float y, float z)
+bool Chunk::isFaceVisible(float x, float y, float z)
 {
     if (x < 0 || y < 0 || z < 0)
     {

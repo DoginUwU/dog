@@ -6,50 +6,45 @@
 class VoxelData
 {
 public:
-    inline static std::vector<glm::vec3> vertices = {
-        {0, 0, 0},
-        {1, 0, 0},
-        {1, 1, 0},
-        {0, 1, 0},
-        {0, 0, 1},
-        {1, 0, 1},
-        {1, 1, 1},
-        {0, 1, 1},
-    };
-    inline static std::vector<glm::vec3> faces = {
-        {0, 0, -1},
-        {0, 0, 1},
-        {0, 1, 0},
-        {0, -1, 0},
-        {-1, 0, 0},
-        {1, 0, 0},
-    };
-    static constexpr uint8_t indices[6][4] = {
-        {0, 3, 1, 2},
-        {5, 6, 4, 7},
-        {3, 7, 2, 6},
-        {1, 5, 0, 4},
-        {4, 7, 0, 3},
-        {1, 2, 5, 6},
-    };
-    static constexpr int_fast8_t normals[6][3] = {
-        {0, 0, -1},
-        {0, 0, 1},
-        {0, 1, 0},
-        {0, -1, 0},
-        {-1, 0, 0},
-        {1, 0, 0},
-    };
-    static glm::vec3 getCorrectedNormal(glm::vec3 normal)
-    {
-        return normal * VOXEL_SIZE;
-    }
+    static constexpr float VOXEL_SIZE = 0.1f;
 
-    static constexpr float VOXEL_SIZE = 0.2f;
-    static const uint_least8_t CHUNK_SIZE = 6;
-    static const uint_least8_t CHUNK_SIZE_Y = 2;
+    inline static std::vector<glm::vec3> vertices = {
+        {0, 0, 0},                                        // 0
+        {1 * VOXEL_SIZE, 0, 0},                           // 1
+        {1 * VOXEL_SIZE, 1 * VOXEL_SIZE, 0},              // 2
+        {0, 1 * VOXEL_SIZE, 0},                           // 3
+        {0, 0, 1 * VOXEL_SIZE},                           // 4
+        {1 * VOXEL_SIZE, 0, 1 * VOXEL_SIZE},              // 5
+        {1 * VOXEL_SIZE, 1 * VOXEL_SIZE, 1 * VOXEL_SIZE}, // 6
+        {0, 1 * VOXEL_SIZE, 1 * VOXEL_SIZE}               // 7
+    };
+
+    static constexpr uint8_t indices[6][4] = {
+        {0, 1, 2, 3}, // Front
+        {5, 4, 7, 6}, // Back
+        {6, 2, 1, 5}, // Right
+        {4, 0, 3, 7}, // Left
+        {3, 2, 6, 7}, // Top
+        {4, 5, 1, 0}  // Bottom
+    };
+
+    inline static std::vector<glm::vec3> faces = {
+        {0, 0, -1 * VOXEL_SIZE}, // Front
+        {0, 0, 1 * VOXEL_SIZE},  // Back
+        {1 * VOXEL_SIZE, 0, 0},  // Right
+        {-1 * VOXEL_SIZE, 0, 0}, // Left
+        {0, 1 * VOXEL_SIZE, 0},  // Top
+        {0, -1 * VOXEL_SIZE, 0}  // Bottom
+    };
+
+    static constexpr int_fast8_t normals[6][3] = {
+
+    };
+
+    static const uint_least8_t CHUNK_SIZE = 64;
+    static const uint_least8_t CHUNK_SIZE_Y = 1;
     static const uint_least8_t RENDER_DISTANCE = 4;
-    static const uint16_t WORLD_SIZE = 500;
+    static const uint16_t WORLD_SIZE = 1;
     static const uint16_t WORLD_SIZE_IN_CHUNK_SIZE = WORLD_SIZE * CHUNK_SIZE;
 };
 #endif

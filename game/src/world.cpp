@@ -5,17 +5,9 @@
 World::World(Dog::Camera *camera)
 {
     this->camera = camera;
+    // TODO: Remove this :(
     camera->position = glm::vec3(VoxelData::WORLD_SIZE / 2, 1.0f, VoxelData::WORLD_SIZE / 2);
-
-    // for (int x = 0; x < VoxelData::WORLD_SIZE; x++)
-    // {
-    //     for (int z = 0; z < VoxelData::WORLD_SIZE; z++)
-    //     {
-    //         chunks[x][z] = new Chunk(glm::vec3(x * VoxelData::CHUNK_SIZE, 0, z * VoxelData::CHUNK_SIZE), &perlinNoise);
-
-    //         Dog::Engine::activeScene->instantiate(chunks[x][z]);
-    //     }
-    // }
+    createChunk(0, 0);
 }
 
 World::~World()
