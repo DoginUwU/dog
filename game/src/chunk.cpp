@@ -32,6 +32,8 @@ void Chunk::createMesh()
             createBlock(x, y, z);
         }
     }
+
+    mesh.optimize();
 }
 
 void Chunk::createBlock(float x, float y, float z)

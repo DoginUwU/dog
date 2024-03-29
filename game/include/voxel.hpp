@@ -47,9 +47,9 @@ public:
         {0, -1 * VOXEL_SIZE, 0}  // Bottom
     };
 
-    static constexpr int_fast8_t normals[6][3] = {
+    // static constexpr int_fast8_t normals[6][3] = {
 
-    };
+    // };
 
     static const uint_least8_t CHUNK_SIZE = 64;
     static const uint_least8_t CHUNK_SIZE_Y = 1;

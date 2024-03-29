@@ -3,6 +3,7 @@
 
 #include <glad/gl.h>
 #include <cstddef>
+#include <meshoptimizer.h>
 
 namespace Dog
 {
@@ -49,7 +50,18 @@ namespace Dog
         vertices.clear();
         indices.clear();
 
-        vertices.shrink_to_fit();
-        indices.shrink_to_fit();
+        optimize();
     }
+}
+
+void Dog::Mesh::optimize()
+{
+    std::vector<uint32_t> remap(vertices.size());
+
+    size_t vertexCount = meshopt_generateVertexRemap(remap.data(), indices.data(), indices.size(), vertices.data(), vertices.size(), sizeof(Vertex));
+    meshopt_optimizeVertexCache(indices.data(), indices.data(), indices.size(), vertices.size());
+    meshopt_optimizeVertexFetch(vertices.data(), indices.data(), indices.size(), vertices.data(), vertices.size(), sizeof(Vertex));
+
+    vertices.shrink_to_fit();
+    indices.shrink_to_fit();
 }

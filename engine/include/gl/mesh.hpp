@@ -22,6 +22,7 @@ namespace Dog
 
         void draw();
         void clear();
+        void optimize();
 
     protected:
         uint32_t vao;

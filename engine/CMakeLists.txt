@@ -7,6 +7,7 @@ enable_testing()
 add_subdirectory(dependencies/glfw)
 add_subdirectory(dependencies/glm)
 add_subdirectory(dependencies/glad)
+add_subdirectory(dependencies/meshoptimizer)
 
 file(GLOB SOURCES lib/**/*.cpp lib/*.cpp)
 file(GLOB HEADERS include/**/*.hpp include/*.hpp)
@@ -18,6 +19,7 @@ add_library(engine STATIC ${SOURCES} ${HEADERS})
 target_link_libraries(engine glfw)
 target_link_libraries(engine glm)
 target_link_libraries(engine glad)
+target_link_libraries(engine meshoptimizer)
 
 include_directories(include)
 

@@ -20,7 +20,7 @@ void World::start()
 
 void World::update(float deltaTime)
 {
-    updateChunkVisibility();
+    // updateChunkVisibility();
 }
 
 void World::updateChunkVisibility()
