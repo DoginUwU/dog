@@ -10,8 +10,8 @@ World::World(Dog::Camera *camera)
 
     createChunk(0, 0);
     createChunk(1, 0);
-    // createChunk(0, 1);
-    // createChunk(1, 1);
+    createChunk(0, 1);
+    createChunk(1, 1);
     // updateChunksAroundPlayer();
 }
 

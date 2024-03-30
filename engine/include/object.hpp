@@ -21,11 +21,12 @@ namespace Dog
         virtual void update(float deltaTime);
 
         void setCamera(Camera *camera);
-        void setFrustumMixMax(glm::vec3 min, glm::vec3 max);
+        void setSize(glm::vec3 min, glm::vec3 max);
 
     protected:
         Camera *camera;
         AABB aabb;
+        bool sizeIsSet = false;
     };
 }
 #endif

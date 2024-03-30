@@ -14,10 +14,14 @@ namespace Dog
 
     void Object::update(float deltaTime)
     {
-        mesh.active = camera->frustum->aabbInFrustum(&aabb);
+        Shaders::objectShader->setMat4(Shaders::objectShader->modelLoc, transform.matrix);
+
+        if (sizeIsSet && !camera->frustum->aabbInFrustum(&aabb))
+        {
+            return;
+        }
 
         mesh.draw();
-        Shaders::objectShader->setMat4(Shaders::objectShader->modelLoc, transform.matrix);
     }
 
     void Object::setCamera(Camera *camera)
@@ -25,8 +29,9 @@ namespace Dog
         this->camera = camera;
     }
 
-    void Object::setFrustumMixMax(glm::vec3 min, glm::vec3 max)
+    void Object::setSize(glm::vec3 min, glm::vec3 max)
     {
         aabb.setMinMax(min, max);
+        sizeIsSet = true;
     }
 }

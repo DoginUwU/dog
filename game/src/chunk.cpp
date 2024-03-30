@@ -5,7 +5,7 @@
 
 Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise)
 {
-    setFrustumMixMax(position, position + glm::vec3(VoxelData::CHUNK_SIZE, VoxelData::CHUNK_SIZE_Y, VoxelData::CHUNK_SIZE));
+    setSize(position, position + glm::vec3(VoxelData::CHUNK_SIZE, VoxelData::CHUNK_SIZE_Y, VoxelData::CHUNK_SIZE));
 
     this->perlinNoise = perlinNoise;
     this->transform.setPosition(position);
