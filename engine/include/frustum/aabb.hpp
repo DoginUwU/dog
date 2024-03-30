@@ -9,7 +9,6 @@ namespace Dog
     public:
         glm::vec3 min;
         glm::vec3 max;
-        glm::vec3 *corners;
 
         AABB();
         ~AABB();
@@ -18,9 +17,6 @@ namespace Dog
 
         bool intersects(const AABB &other) const;
         bool contains(const glm::vec3 &point) const;
-
-    private:
-        void compile();
     };
 }
 #endif

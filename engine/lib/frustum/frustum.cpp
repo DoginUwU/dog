@@ -49,8 +49,6 @@ namespace Dog
 
     bool Frustum::aabbInFrustum(AABB *aabb)
     {
-        glm::vec3 *corners = aabb->corners;
-
         for (int i = 0; i < 6; i++)
         {
             glm::vec3 extent = glm::vec3(0.0f);
