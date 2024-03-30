@@ -1,9 +1,13 @@
 #include "chunk.hpp"
+#include "gl/input.hpp"
 
 #include <iostream>
 
-Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise)
+Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise, Dog::Camera *camera)
 {
+    this->camera = camera;
+    this->aabb = new Dog::AABB(position, position + glm::vec3(VoxelData::CHUNK_SIZE, VoxelData::CHUNK_SIZE_Y, VoxelData::CHUNK_SIZE));
+
     this->perlinNoise = perlinNoise;
     this->transform.setPosition(position);
 
@@ -12,6 +16,7 @@ Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise)
 
 Chunk::~Chunk()
 {
+    delete aabb;
 }
 
 void Chunk::start()
@@ -21,6 +26,8 @@ void Chunk::start()
 void Chunk::update(float deltaTime)
 {
     Object::update(deltaTime);
+
+    mesh.active = camera->frustum->aabbInFrustum(aabb);
 }
 
 void Chunk::createMesh()

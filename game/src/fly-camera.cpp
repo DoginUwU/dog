@@ -23,7 +23,6 @@ void FlyCamera::update(float deltaTime)
     Camera::update(deltaTime);
 
     processInput(deltaTime);
-
     processMouse(Input::mouseX, Input::mouseY);
 }
 
@@ -54,13 +53,6 @@ void FlyCamera::processInput(float deltaTime)
 
 void FlyCamera::processMouse(float x, float y)
 {
-    if (firstMouse)
-    {
-        lastX = x;
-        lastY = y;
-        firstMouse = false;
-    }
-
     float xOffset = x - lastX;
     float yOffset = lastY - y;
 

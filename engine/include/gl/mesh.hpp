@@ -16,6 +16,7 @@ namespace Dog
     public:
         std::vector<Vertex> vertices;
         std::vector<uint32_t> indices;
+        bool active = true;
 
         Mesh();
         ~Mesh();

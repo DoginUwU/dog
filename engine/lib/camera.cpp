@@ -11,9 +11,14 @@ namespace Dog
         view = glm::mat4(1.0f);
         projection = glm::mat4(1.0f);
         position = glm::vec3(0.0f, 0.0f, 0.0f);
+
+        frustum = new Frustum(projection * view);
     }
 
-    Camera::~Camera() {}
+    Camera::~Camera()
+    {
+        delete frustum;
+    }
 
     void Camera::start()
     {
@@ -27,6 +32,7 @@ namespace Dog
 
     void Camera::update(float deltaTime)
     {
+        frustum->frustrate(projection * view);
         view = glm::lookAt(position, position + front, up);
 
         Shaders::objectShader->setMat4(Shaders::objectShader->viewLoc, view);

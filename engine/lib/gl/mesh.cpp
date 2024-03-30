@@ -33,6 +33,11 @@ namespace Dog
 
     void Mesh::draw()
     {
+        if (!active)
+        {
+            return;
+        }
+
         Shaders::objectShader->use();
 
         glBindBuffer(GL_ARRAY_BUFFER, vbo);

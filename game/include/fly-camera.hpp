@@ -13,11 +13,10 @@ public:
     void update(float deltaTime);
 
 private:
-    float yaw;
-    float pitch;
-    float lastX;
-    float lastY;
-    bool firstMouse;
+    float yaw = 0;
+    float pitch = 0;
+    float lastX = 0;
+    float lastY = 0;
 
     void processInput(float deltaTime);
     void processMouse(float x, float y);

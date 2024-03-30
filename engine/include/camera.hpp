@@ -2,6 +2,7 @@
 #define CAMERA_HPP
 #include "component.hpp"
 #include "transform.hpp"
+#include "frustum/frustum.hpp"
 
 #include <glm/glm.hpp>
 
@@ -18,6 +19,8 @@ namespace Dog
         float fov;
         float near;
         float far;
+
+        Frustum *frustum;
 
         Camera();
         ~Camera();
