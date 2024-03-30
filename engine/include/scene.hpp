@@ -2,6 +2,7 @@
 #define SCENE_HPP
 
 #include "component.hpp"
+#include "camera.hpp"
 
 #include <vector>
 #include <memory>
@@ -22,6 +23,7 @@ namespace Dog
 
     private:
         std::vector<std::unique_ptr<Component>> components;
+        Camera *mainCamera;
     };
 }
 #endif

@@ -53,20 +53,13 @@ namespace Dog
 
         for (int i = 0; i < 6; i++)
         {
-            int inCount = 8;
+            glm::vec3 extent = glm::vec3(0.0f);
 
-            for (int j = 0; j < 8; j++)
-            {
-                if (!pointInFrustum(corners[j], 0.5f))
-                {
-                    inCount--;
-                }
-            }
+            extent.x = planes[i]->quaternion.x >= 0 ? aabb->max.x : aabb->min.x;
+            extent.y = planes[i]->quaternion.y >= 0 ? aabb->max.y : aabb->min.y;
+            extent.z = planes[i]->quaternion.z >= 0 ? aabb->max.z : aabb->min.z;
 
-            std::cout << inCount << std::endl;
-
-            // If all corners are out
-            if (inCount == 0)
+            if (planes[i]->distance(extent) < 0)
             {
                 return false;
             }

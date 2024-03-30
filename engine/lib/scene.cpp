@@ -1,4 +1,5 @@
 #include "scene.hpp"
+#include "object.hpp"
 
 namespace Dog
 {
@@ -24,8 +25,18 @@ namespace Dog
 
     void Scene::instantiate(Component *component)
     {
-        components.push_back(std::unique_ptr<Component>(component));
+        if (dynamic_cast<Camera *>(component))
+        {
+            mainCamera = dynamic_cast<Camera *>(component);
+        }
 
+        if (dynamic_cast<Object *>(component))
+        {
+            Object *object = dynamic_cast<Object *>(component);
+            object->setCamera(mainCamera);
+        }
+
+        components.push_back(std::unique_ptr<Component>(component));
         component->start();
     }
 

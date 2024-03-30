@@ -7,14 +7,12 @@
 World::World(Dog::Camera *camera)
 {
     this->camera = camera;
-    // TODO: Remove this :(
-    camera->position = glm::vec3(VoxelData::WORLD_SIZE / 2, 1.0f, VoxelData::WORLD_SIZE / 2);
 
-    // createChunk(0, 0);
-    // createChunk(1, 0);
+    createChunk(0, 0);
+    createChunk(1, 0);
     // createChunk(0, 1);
     // createChunk(1, 1);
-    updateChunksAroundPlayer();
+    // updateChunksAroundPlayer();
 }
 
 World::~World()
@@ -27,7 +25,7 @@ void World::start()
 
 void World::update(float deltaTime)
 {
-    updateChunksAroundPlayer();
+    // updateChunksAroundPlayer();
 }
 
 void World::updateChunksAroundPlayer()
@@ -76,7 +74,7 @@ void World::updateChunksAroundPlayer()
 
 void World::createChunk(uint16_t x, uint16_t z)
 {
-    chunks[x][z] = new Chunk(glm::vec3(x * VoxelData::CHUNK_SIZE, 0, z * VoxelData::CHUNK_SIZE), &perlinNoise, camera);
+    chunks[x][z] = new Chunk(glm::vec3(x * VoxelData::CHUNK_SIZE, 0, z * VoxelData::CHUNK_SIZE), &perlinNoise);
 
     Dog::Engine::activeScene->instantiate(chunks[x][z]);
 }

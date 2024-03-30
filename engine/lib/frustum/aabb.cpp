@@ -2,12 +2,21 @@
 
 namespace Dog
 {
-    AABB::AABB(glm::vec3 min, glm::vec3 max)
+    AABB::AABB()
+    {
+    }
+
+    AABB::~AABB()
+    {
+        delete[] corners;
+    }
+
+    void AABB::setMinMax(glm::vec3 min, glm::vec3 max)
     {
         this->min = min;
         this->max = max;
 
-        getCorners();
+        compile();
     }
 
     bool AABB::intersects(const AABB &other) const
@@ -24,7 +33,7 @@ namespace Dog
                point.z >= min.z && point.z <= max.z;
     }
 
-    void AABB::getCorners()
+    void AABB::compile()
     {
         glm::vec3 *corners = new glm::vec3[8];
 
