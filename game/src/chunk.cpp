@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <math.h>
+#include <chrono>
 
 Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise)
 {
@@ -28,9 +29,14 @@ void Chunk::update(float deltaTime)
 
 void Chunk::createMesh()
 {
+    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+
+    mesh.vertices.reserve(VoxelData::CHUNK_SIZE * VoxelData::CHUNK_SIZE_Y * VoxelData::CHUNK_SIZE * 24);
+    mesh.indices.reserve(VoxelData::CHUNK_SIZE * VoxelData::CHUNK_SIZE_Y * VoxelData::CHUNK_SIZE * 36);
+
     for (float x = 0; x < VoxelData::CHUNK_SIZE; x += VoxelData::VOXEL_SIZE)
     {
-        for (float y = 0; y < 2; y += VoxelData::VOXEL_SIZE)
+        for (float y = 0; y < VoxelData::CHUNK_SIZE_Y; y += VoxelData::VOXEL_SIZE)
         {
             for (float z = 0; z < VoxelData::CHUNK_SIZE; z += VoxelData::VOXEL_SIZE)
             {
@@ -40,7 +46,11 @@ void Chunk::createMesh()
         }
     }
 
-    // mesh.optimize();
+    mesh.optimize();
+
+    std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+
+    std::cout << "Time difference = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]" << std::endl;
 }
 
 void Chunk::createBlock(float x, float y, float z)
@@ -112,10 +122,24 @@ bool Chunk::isFaceVisible(float x, float y, float z, Direction direction)
 
 float Chunk::getBlockHeight(float x, float z)
 {
+    int xKey = std::round(x * 10);
+    int zKey = std::round(z * 10);
+
+    RoundedCoords coords = {xKey, zKey};
+
+    if (blockHeights.find(coords) != blockHeights.end())
+    {
+        return blockHeights[coords];
+    }
+
     glm::vec3 heightPos = glm::vec3(x, 0, z) + transform.getPosition();
     const float y = perlinNoise->octave2D_01(heightPos.x * 0.1, heightPos.z * 0.1, 6) * (VoxelData::CHUNK_SIZE_Y / VoxelData::VOXEL_SIZE);
 
     int yInt = std::round(y);
 
-    return yInt * VoxelData::VOXEL_SIZE;
+    float value = yInt * VoxelData::VOXEL_SIZE;
+
+    blockHeights[coords] = value;
+
+    return value;
 }

@@ -93,7 +93,7 @@ void World::destroyChunk(uint16_t x, uint16_t z)
     if (chunk != nullptr)
     {
         Dog::Engine::activeScene->destroy(chunk);
-        // chunk->mesh.clear();
+        chunk->mesh.clear();
         chunks[x][z] = nullptr;
     }
 }

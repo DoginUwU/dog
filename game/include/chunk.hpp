@@ -3,6 +3,19 @@
 #include "voxel.hpp"
 #include "frustum/aabb.hpp"
 
+#include <map>
+
+struct RoundedCoords
+{
+    int x;
+    int z;
+
+    bool operator<(const RoundedCoords &other) const
+    {
+        return x < other.x || (x == other.x && z < other.z);
+    }
+};
+
 class Chunk : public Dog::Object
 {
 public:
@@ -15,6 +28,7 @@ public:
 private:
     const siv::PerlinNoise *perlinNoise;
     uint32_t vertexIndex = 0;
+    std::map<RoundedCoords, float> blockHeights;
 
     void createMesh();
     void createBlock(float x, float y, float z);
