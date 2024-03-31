@@ -52,7 +52,7 @@ public:
     // };
 
     static const uint_least8_t CHUNK_SIZE = 32;
-    static const uint_least8_t CHUNK_SIZE_Y = 1;
+    static const uint_least8_t CHUNK_SIZE_Y = 5;
     static const uint_least8_t RENDER_DISTANCE = 2;
     static const uint16_t WORLD_SIZE = 10;
     static const uint16_t WORLD_SIZE_IN_CHUNK_SIZE = WORLD_SIZE * CHUNK_SIZE;

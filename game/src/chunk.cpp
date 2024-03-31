@@ -2,6 +2,7 @@
 #include "gl/input.hpp"
 
 #include <iostream>
+#include <math.h>
 
 Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise)
 {
@@ -26,10 +27,13 @@ void Chunk::createMesh()
 {
     for (float x = 0; x < VoxelData::CHUNK_SIZE; x += VoxelData::VOXEL_SIZE)
     {
-        for (float z = 0; z < VoxelData::CHUNK_SIZE; z += VoxelData::VOXEL_SIZE)
+        for (float y = 0; y < 2; y += VoxelData::VOXEL_SIZE)
         {
-            float y = getBlockHeight(x, z);
-            createBlock(x, y, z);
+            for (float z = 0; z < VoxelData::CHUNK_SIZE; z += VoxelData::VOXEL_SIZE)
+            {
+                float generatedY = getBlockHeight(x, z);
+                createBlock(x, generatedY - y, z);
+            }
         }
     }
 
@@ -86,13 +90,13 @@ bool Chunk::isFaceVisible(float x, float y, float z, Direction direction)
     switch (direction)
     {
     case FRONT:
-        return getBlockHeight(x, z - VoxelData::VOXEL_SIZE) < y;
+        return getBlockHeight(x, z) < y;
     case BACK:
-        return getBlockHeight(x, z + VoxelData::VOXEL_SIZE) < y;
+        return getBlockHeight(x, z) < y;
     case RIGHT:
-        return getBlockHeight(x + VoxelData::VOXEL_SIZE, z) < y;
+        return getBlockHeight(x, z) < y;
     case LEFT:
-        return getBlockHeight(x - VoxelData::VOXEL_SIZE, z) < y;
+        return getBlockHeight(x, z) < y;
     case TOP:
         return getBlockHeight(x, z) < y;
     // TODO: Find a way to check bottom face visibility
@@ -106,7 +110,9 @@ bool Chunk::isFaceVisible(float x, float y, float z, Direction direction)
 float Chunk::getBlockHeight(float x, float z)
 {
     glm::vec3 heightPos = glm::vec3(x, 0, z) + transform.getPosition();
-    const float y = perlinNoise->octave2D_01(heightPos.x * 0.1, heightPos.z * 0.1, 6) * VoxelData::CHUNK_SIZE_Y;
+    const float y = perlinNoise->octave2D_01(heightPos.x * 0.1, heightPos.z * 0.1, 6) * (VoxelData::CHUNK_SIZE_Y / VoxelData::VOXEL_SIZE);
 
-    return y;
+    int yInt = std::round(y);
+
+    return yInt * VoxelData::VOXEL_SIZE;
 }
