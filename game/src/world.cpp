@@ -8,15 +8,17 @@ World::World(Dog::Camera *camera)
 {
     this->camera = camera;
 
-    createChunk(0, 0);
+    // createChunk(0, 0);
     // createChunk(1, 0);
     // createChunk(0, 1);
-    createChunk(1, 1);
+    // createChunk(1, 1);
     // updateChunksAroundPlayer();
+    chunkThread = std::thread(&World::updateChunksAroundPlayer, this);
 }
 
 World::~World()
 {
+    chunkThread.join();
 }
 
 void World::start()
@@ -25,7 +27,7 @@ void World::start()
 
 void World::update(float deltaTime)
 {
-    // updateChunksAroundPlayer();
+    // chunkThread = std::thread(&World::updateChunksAroundPlayer, this);
 }
 
 void World::updateChunksAroundPlayer()
@@ -44,39 +46,41 @@ void World::updateChunksAroundPlayer()
     {
         for (uint16_t z = playerMinChunkZ; z < playerMaxChunkZ; z++)
         {
-            std::cout << "Chunk: " << x << ", " << z << std::endl;
-
             if (chunks[x][z] == nullptr)
             {
                 createChunk(x, z);
-                activeChunks.push_back(chunks[x][z]);
             }
         }
     }
 
-    for (auto chunk : activeChunks)
-    {
-        if (chunk == nullptr)
-        {
-            continue;
-        }
+    // for (auto chunk : activeChunks)
+    // {
+    //     if (chunk == nullptr)
+    //     {
+    //         continue;
+    //     }
 
-        uint16_t chunkX = chunk->transform.getPosition().x / VoxelData::CHUNK_SIZE;
-        uint16_t chunkZ = chunk->transform.getPosition().z / VoxelData::CHUNK_SIZE;
+    //     uint16_t chunkX = chunk->transform.getPosition().x / VoxelData::CHUNK_SIZE;
+    //     uint16_t chunkZ = chunk->transform.getPosition().z / VoxelData::CHUNK_SIZE;
 
-        if (chunkX < playerMinChunkX || chunkX >= playerMaxChunkX || chunkZ < playerMinChunkZ || chunkZ >= playerMaxChunkZ)
-        {
-            destroyChunk(chunkX, chunkZ);
-            activeChunks.erase(std::remove(activeChunks.begin(), activeChunks.end(), chunk), activeChunks.end());
-        }
-    }
+    //     if (chunkX < playerMinChunkX || chunkX >= playerMaxChunkX || chunkZ < playerMinChunkZ || chunkZ >= playerMaxChunkZ)
+    //     {
+    //         destroyChunk(chunkX, chunkZ);
+    //         activeChunks.erase(std::remove(activeChunks.begin(), activeChunks.end(), chunk), activeChunks.end());
+    //     }
+    // }
 }
 
 void World::createChunk(uint16_t x, uint16_t z)
 {
-    chunks[x][z] = new Chunk(glm::vec3(x * VoxelData::CHUNK_SIZE, 0, z * VoxelData::CHUNK_SIZE), &perlinNoise);
+    Chunk *chunk = new Chunk(glm::vec3(x * VoxelData::CHUNK_SIZE, 0, z * VoxelData::CHUNK_SIZE), &perlinNoise);
+    std::cout << "Chunk: " << x << ", " << z << std::endl;
 
+    chunkMutex.lock();
+    chunks[x][z] = chunk;
     Dog::Engine::activeScene->instantiate(chunks[x][z]);
+    activeChunks.push_back(chunks[x][z]);
+    chunkMutex.unlock();
 }
 
 void World::destroyChunk(uint16_t x, uint16_t z)

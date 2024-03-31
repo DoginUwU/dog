@@ -4,7 +4,6 @@
 #include <glad/gl.h>
 #include <cstddef>
 #include <meshoptimizer.h>
-
 #include <iostream>
 
 namespace Dog
@@ -36,8 +35,6 @@ namespace Dog
 
         glVertexAttribPointer(1, 3, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (void *)offsetof(Vertex, color));
         glEnableVertexAttribArray(1);
-
-        std::cout << "Mesh created" << std::endl;
     }
 
     void Mesh::draw()

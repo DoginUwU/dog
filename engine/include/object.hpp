@@ -17,7 +17,7 @@ namespace Dog
         Object();
         ~Object();
 
-        virtual void start() = 0;
+        virtual void start();
         virtual void update(float deltaTime);
 
         void setCamera(Camera *camera);
@@ -27,6 +27,10 @@ namespace Dog
         Camera *camera;
         AABB aabb;
         bool sizeIsSet = false;
+
+    private:
+        void _internalStart();
+        void _internalUpdate(float deltaTime);
     };
 }
 #endif

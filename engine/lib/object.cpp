@@ -1,6 +1,6 @@
 #include "object.hpp"
 #include "shaders.hpp"
-#include "gl/mesh_queue.hpp"
+#include "draw_queue.hpp"
 
 namespace Dog
 {
@@ -16,10 +16,20 @@ namespace Dog
 
     void Object::start()
     {
-        MeshQueue::instance->addMeshToQueue(&mesh);
+        DrawQueue::instance->addTask(std::bind(&Object::_internalStart, this));
     }
 
     void Object::update(float deltaTime)
+    {
+        DrawQueue::instance->addTask(std::bind(&Object::_internalUpdate, this, deltaTime));
+    }
+
+    void Object::_internalStart()
+    {
+        mesh.init();
+    }
+
+    void Object::_internalUpdate(float deltaTime)
     {
         if (sizeIsSet && !camera->frustum->aabbInFrustum(&aabb))
         {
@@ -28,6 +38,7 @@ namespace Dog
         }
 
         mesh.isActive = true;
+        mesh.draw();
     }
 
     void Object::setCamera(Camera *camera)

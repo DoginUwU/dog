@@ -5,6 +5,8 @@
 #include "camera.hpp"
 
 #include <vector>
+#include <mutex>
+#include <thread>
 
 class World : public Dog::Component
 {
@@ -24,4 +26,7 @@ private:
     const siv::PerlinNoise perlinNoise{std::random_device()()};
     Dog::Camera *camera;
     std::vector<Chunk *> activeChunks;
+
+    std::mutex chunkMutex;
+    std::thread chunkThread;
 };
