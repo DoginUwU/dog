@@ -23,7 +23,7 @@ namespace Dog
     void Camera::start()
     {
         aspectRatio = 800.0f / 600.0f;
-        fov = 45.0f;
+        fov = 90.0f;
         near = 0.1f;
         far = 100.0f;
 
