@@ -1,5 +1,6 @@
 #include <glad/gl.h>
 #include <GLFW/glfw3.h>
+#include <gl/mesh_queue.hpp>
 
 #include <string>
 
@@ -22,6 +23,8 @@ namespace Dog
 
     private:
         GLFWwindow *window;
+        MeshQueue *meshQueue;
+
         bool wireframeMode = false;
     };
 }

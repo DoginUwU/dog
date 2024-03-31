@@ -32,15 +32,19 @@ namespace Dog
         glfwSwapInterval(0);
 
         Input::init(window);
+        meshQueue = new MeshQueue();
     }
 
     Window::~Window()
     {
+        delete meshQueue;
         glfwDestroyWindow(window);
     }
 
     void Window::update()
     {
+        meshQueue->drawQueue();
+
         glfwSwapBuffers(window);
 
         if (Input::isKeyPressed(GLFW_KEY_P))

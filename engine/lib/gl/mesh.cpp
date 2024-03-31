@@ -5,9 +5,22 @@
 #include <cstddef>
 #include <meshoptimizer.h>
 
+#include <iostream>
+
 namespace Dog
 {
     Mesh::Mesh()
+    {
+    }
+
+    Mesh::~Mesh()
+    {
+        glDeleteBuffers(1, &vbo);
+        glDeleteBuffers(1, &ebo);
+        glDeleteVertexArrays(1, &vao);
+    }
+
+    void Mesh::init()
     {
         glGenVertexArrays(1, &vao);
         glBindVertexArray(vao);
@@ -23,16 +36,18 @@ namespace Dog
 
         glVertexAttribPointer(1, 3, GL_UNSIGNED_BYTE, GL_TRUE, sizeof(Vertex), (void *)offsetof(Vertex, color));
         glEnableVertexAttribArray(1);
-    }
 
-    Mesh::~Mesh()
-    {
-        glDeleteBuffers(1, &vbo);
-        glDeleteVertexArrays(1, &vao);
+        std::cout << "Mesh created" << std::endl;
     }
 
     void Mesh::draw()
     {
+        if (!isActive)
+        {
+            return;
+        }
+
+        Shaders::objectShader->setMat4(Shaders::objectShader->modelLoc, transform->matrix);
         Shaders::objectShader->use();
 
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
@@ -53,29 +68,29 @@ namespace Dog
         vertices.shrink_to_fit();
         indices.shrink_to_fit();
     }
-}
 
-void Dog::Mesh::optimize()
-{
-    // std::vector<uint32_t> remap(vertices.size());
+    void Mesh::optimize()
+    {
+        // std::vector<uint32_t> remap(vertices.size());
 
-    // size_t vertexCount = meshopt_generateVertexRemap(remap.data(), indices.data(), indices.size(), vertices.data(), vertices.size(), sizeof(Vertex));
+        // size_t vertexCount = meshopt_generateVertexRemap(remap.data(), indices.data(), indices.size(), vertices.data(), vertices.size(), sizeof(Vertex));
 
-    // std::vector<Vertex> vertices_copy(vertices.size());
-    // std::vector<uint32_t> indices_copy(indices.size());
+        // std::vector<Vertex> vertices_copy(vertices.size());
+        // std::vector<uint32_t> indices_copy(indices.size());
 
-    // meshopt_remapVertexBuffer(vertices_copy.data(), vertices.data(), vertices.size(), sizeof(Vertex), remap.data());
-    // meshopt_remapIndexBuffer(indices_copy.data(), indices.data(), indices.size(), remap.data());
+        // meshopt_remapVertexBuffer(vertices_copy.data(), vertices.data(), vertices.size(), sizeof(Vertex), remap.data());
+        // meshopt_remapIndexBuffer(indices_copy.data(), indices.data(), indices.size(), remap.data());
 
-    // meshopt_optimizeOverdraw(indices_copy.data(), indices_copy.data(), indices.size(), (float *)&(vertices_copy[0].position[0]), vertices_copy.size(), sizeof(Vertex::position), 1.05f);
+        // meshopt_optimizeOverdraw(indices_copy.data(), indices_copy.data(), indices.size(), (float *)&(vertices_copy[0].position[0]), vertices_copy.size(), sizeof(Vertex::position), 1.05f);
 
-    // meshopt_optimizeVertexFetch(vertices_copy.data(), indices_copy.data(), indices_copy.size(), vertices_copy.data(), vertices_copy.size(), sizeof(Vertex));
+        // meshopt_optimizeVertexFetch(vertices_copy.data(), indices_copy.data(), indices_copy.size(), vertices_copy.data(), vertices_copy.size(), sizeof(Vertex));
 
-    // meshopt_optimizeVertexCache(indices_copy.data(), indices_copy.data(), indices.size(), vertices.size());
+        // meshopt_optimizeVertexCache(indices_copy.data(), indices_copy.data(), indices.size(), vertices.size());
 
-    // vertices = vertices_copy;
-    // indices = indices_copy;
+        // vertices = vertices_copy;
+        // indices = indices_copy;
 
-    vertices.shrink_to_fit();
-    indices.shrink_to_fit();
+        vertices.shrink_to_fit();
+        indices.shrink_to_fit();
+    }
 }

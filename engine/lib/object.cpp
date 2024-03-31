@@ -1,27 +1,33 @@
 #include "object.hpp"
 #include "shaders.hpp"
+#include "gl/mesh_queue.hpp"
 
 namespace Dog
 {
     Object::Object()
     {
+        mesh.transform = &transform;
     }
 
     Object::~Object()
     {
-        mesh.clear();
+        // mesh.clear();
+    }
+
+    void Object::start()
+    {
+        MeshQueue::instance->addMeshToQueue(&mesh);
     }
 
     void Object::update(float deltaTime)
     {
-        Shaders::objectShader->setMat4(Shaders::objectShader->modelLoc, transform.matrix);
-
         if (sizeIsSet && !camera->frustum->aabbInFrustum(&aabb))
         {
+            mesh.isActive = false;
             return;
         }
 
-        mesh.draw();
+        mesh.isActive = true;
     }
 
     void Object::setCamera(Camera *camera)

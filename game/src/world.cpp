@@ -9,9 +9,9 @@ World::World(Dog::Camera *camera)
     this->camera = camera;
 
     createChunk(0, 0);
-    createChunk(1, 0);
+    // createChunk(1, 0);
     // createChunk(0, 1);
-    // createChunk(1, 1);
+    createChunk(1, 1);
     // updateChunksAroundPlayer();
 }
 
@@ -86,7 +86,7 @@ void World::destroyChunk(uint16_t x, uint16_t z)
     if (chunk != nullptr)
     {
         Dog::Engine::activeScene->destroy(chunk);
-        chunk->mesh.clear();
+        // chunk->mesh.clear();
         chunks[x][z] = nullptr;
     }
 }

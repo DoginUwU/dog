@@ -16,7 +16,10 @@ Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise)
 
 Chunk::~Chunk() {}
 
-void Chunk::start() {}
+void Chunk::start()
+{
+    Object::start();
+}
 
 void Chunk::update(float deltaTime)
 {
@@ -37,7 +40,7 @@ void Chunk::createMesh()
         }
     }
 
-    mesh.optimize();
+    // mesh.optimize();
 }
 
 void Chunk::createBlock(float x, float y, float z)

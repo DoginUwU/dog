@@ -1,5 +1,7 @@
 #ifndef DOG_MESH_HPP
 #define DOG_MESH_HPP
+#include "transform.hpp"
+
 #include <stdint.h>
 #include <vector>
 
@@ -16,10 +18,13 @@ namespace Dog
     public:
         std::vector<Vertex> vertices;
         std::vector<uint32_t> indices;
+        Transform *transform;
+        bool isActive = true;
 
         Mesh();
         ~Mesh();
 
+        void init();
         void draw();
         void clear();
         void optimize();
