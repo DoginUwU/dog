@@ -16,7 +16,7 @@ enum Direction
 class VoxelData
 {
 public:
-    static constexpr float VOXEL_SIZE = 0.1f;
+    static constexpr float VOXEL_SIZE = 0.2f;
 
     inline static std::vector<glm::vec3> vertices = {
         {0, 0, 0},                                        // 0
@@ -54,7 +54,7 @@ public:
     static const uint_least8_t CHUNK_SIZE = 16;
     static const uint_least8_t CHUNK_SIZE_Y = 5;
     static const uint_least8_t RENDER_DISTANCE = 8;
-    static const uint16_t WORLD_SIZE = 2;
+    static const uint16_t WORLD_SIZE = 12;
     static const uint16_t WORLD_SIZE_IN_CHUNK_SIZE = WORLD_SIZE * CHUNK_SIZE;
 };
 #endif
