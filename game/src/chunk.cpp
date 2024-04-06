@@ -34,13 +34,13 @@ void Chunk::createMesh()
     mesh.vertices.reserve(VoxelData::CHUNK_SIZE * VoxelData::CHUNK_SIZE_Y * VoxelData::CHUNK_SIZE * 24);
     mesh.indices.reserve(VoxelData::CHUNK_SIZE * VoxelData::CHUNK_SIZE_Y * VoxelData::CHUNK_SIZE * 36);
 
-    for (float x = 0; x < VoxelData::CHUNK_SIZE; x += VoxelData::VOXEL_SIZE)
+    for (double x = 0; x < VoxelData::CHUNK_SIZE; x += VoxelData::VOXEL_SIZE)
     {
-        for (float y = 0; y < VoxelData::CHUNK_SIZE_Y; y += VoxelData::VOXEL_SIZE)
+        for (double y = 0; y < VoxelData::CHUNK_SIZE_Y; y += VoxelData::VOXEL_SIZE)
         {
-            for (float z = 0; z < VoxelData::CHUNK_SIZE; z += VoxelData::VOXEL_SIZE)
+            for (double z = 0; z < VoxelData::CHUNK_SIZE; z += VoxelData::VOXEL_SIZE)
             {
-                float generatedY = getBlockHeight(x, z);
+                double generatedY = getBlockHeight(x, z);
                 createBlock(x, generatedY - y, z);
             }
         }
@@ -53,7 +53,7 @@ void Chunk::createMesh()
     std::cout << "Time difference = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]" << std::endl;
 }
 
-void Chunk::createBlock(float x, float y, float z)
+void Chunk::createBlock(double x, double y, double z)
 {
     uint_least8_t R = 0;
     uint_least8_t G = rand() % 255;
@@ -88,7 +88,7 @@ void Chunk::createBlock(float x, float y, float z)
     }
 }
 
-bool Chunk::isFaceVisible(float x, float y, float z, Direction direction)
+bool Chunk::isFaceVisible(double x, double y, double z, Direction direction)
 {
     if (x < 0 || y < 0 || z < 0)
     {
@@ -120,7 +120,7 @@ bool Chunk::isFaceVisible(float x, float y, float z, Direction direction)
     }
 }
 
-float Chunk::getBlockHeight(float x, float z)
+double Chunk::getBlockHeight(double x, double z)
 {
     int xKey = std::round(x * 10);
     int zKey = std::round(z * 10);
@@ -133,11 +133,11 @@ float Chunk::getBlockHeight(float x, float z)
     }
 
     glm::vec3 heightPos = glm::vec3(x, 0, z) + transform.getPosition();
-    const float y = perlinNoise->octave2D_01(heightPos.x * 0.1, heightPos.z * 0.1, 6) * (VoxelData::CHUNK_SIZE_Y / VoxelData::VOXEL_SIZE);
+    const double y = perlinNoise->octave2D_01(heightPos.x * 0.1, heightPos.z * 0.1, 6) * (VoxelData::CHUNK_SIZE_Y / VoxelData::VOXEL_SIZE);
 
     int yInt = std::round(y);
 
-    float value = yInt * VoxelData::VOXEL_SIZE;
+    double value = yInt * VoxelData::VOXEL_SIZE;
 
     blockHeights[coords] = value;
 

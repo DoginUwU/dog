@@ -28,12 +28,12 @@ public:
 private:
     const siv::PerlinNoise *perlinNoise;
     uint32_t vertexIndex = 0;
-    std::map<RoundedCoords, float> blockHeights;
+    std::map<RoundedCoords, double> blockHeights;
 
     void createMesh();
-    void createBlock(float x, float y, float z);
+    void createBlock(double x, double y, double z);
 
-    bool isFaceVisible(float x, float y, float z, Direction direction);
+    bool isFaceVisible(double x, double y, double z, Direction direction);
 
-    float getBlockHeight(float x, float z);
+    double getBlockHeight(double x, double z);
 };
