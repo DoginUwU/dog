@@ -4,22 +4,20 @@
 namespace Dog
 {
     Scene::Scene()
-    {
-    }
+    = default;
 
     Scene::~Scene()
-    {
-    }
+    = default;
 
     void Scene::start()
     {
     }
 
-    void Scene::update(float deltaTime)
+    void Scene::update(const float deltaTime) const
     {
-        for (size_t i = 0; i < components.size(); i++)
+        for (const auto & component : components)
         {
-            components[i]->update(deltaTime);
+            component->update(deltaTime);
         }
     }
 
@@ -32,7 +30,7 @@ namespace Dog
 
         if (dynamic_cast<Object *>(component))
         {
-            Object *object = dynamic_cast<Object *>(component);
+            auto *object = dynamic_cast<Object *>(component);
             object->setCamera(mainCamera);
         }
 
@@ -40,7 +38,7 @@ namespace Dog
         component->start();
     }
 
-    void Scene::destroy(Component *component)
+    void Scene::destroy(const Component *component)
     {
         for (size_t i = 0; i < components.size(); i++)
         {

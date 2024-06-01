@@ -9,8 +9,7 @@
 namespace Dog
 {
     Mesh::Mesh()
-    {
-    }
+    = default;
 
     Mesh::~Mesh()
     {
@@ -37,7 +36,7 @@ namespace Dog
         glEnableVertexAttribArray(1);
     }
 
-    void Mesh::draw()
+    void Mesh::draw() const
     {
         if (!isActive)
         {

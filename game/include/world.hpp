@@ -11,18 +11,18 @@
 class World : public Dog::Component
 {
 public:
-    World(Dog::Camera *camera);
+    explicit World(Dog::Camera *camera);
     ~World();
 
-    void start();
-    void update(float deltaTime);
+    void start() override;
+    void update(float deltaTime) override;
     void updateChunksAroundPlayer();
 
     void createChunk(uint16_t x, uint16_t z);
     void destroyChunk(uint16_t x, uint16_t z);
 
 private:
-    Chunk *chunks[VoxelData::WORLD_SIZE][VoxelData::WORLD_SIZE];
+    Chunk *chunks[VoxelData::WORLD_SIZE][VoxelData::WORLD_SIZE]{};
     const siv::PerlinNoise perlinNoise{std::random_device()()};
     Dog::Camera *camera;
     std::vector<Chunk *> activeChunks;

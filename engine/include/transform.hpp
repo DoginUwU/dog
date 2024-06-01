@@ -9,7 +9,7 @@ namespace Dog
     public:
         Transform();
 
-        glm::mat4 matrix;
+        glm::mat4 matrix{};
 
         void setPosition(const glm::vec3 &position);
         glm::vec3 getPosition() const;

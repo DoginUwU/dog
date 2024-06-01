@@ -17,14 +17,14 @@ namespace Dog
         Object();
         ~Object();
 
-        virtual void start();
-        virtual void update(float deltaTime);
+        void start() override;
+        void update(float deltaTime) override;
 
         void setCamera(Camera *camera);
         void setSize(glm::vec3 min, glm::vec3 max);
 
     protected:
-        Camera *camera;
+        Camera *camera{};
         AABB aabb;
         bool sizeIsSet = false;
 

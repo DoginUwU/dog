@@ -36,7 +36,7 @@ namespace Dog
         mainLoop();
     }
 
-    void Engine::stop()
+    void Engine::stop() const
     {
         window->close();
     }
@@ -53,8 +53,8 @@ namespace Dog
             glClearColor(0.84f, 0.96f, 1.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            float currentFrame = glfwGetTime();
-            float deltaTime = currentFrame - lastFrame;
+            const float currentFrame = glfwGetTime();
+            const float deltaTime = currentFrame - lastFrame;
             lastFrame = currentFrame;
 
             frameCount++;

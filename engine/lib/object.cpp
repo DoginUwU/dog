@@ -16,12 +16,12 @@ namespace Dog
 
     void Object::start()
     {
-        DrawQueue::instance->addTask(std::bind(&Object::_internalStart, this));
+        DrawQueue::instance->addTask([this] { _internalStart(); });
     }
 
     void Object::update(float deltaTime)
     {
-        DrawQueue::instance->addTask(std::bind(&Object::_internalUpdate, this, deltaTime));
+        DrawQueue::instance->addTask([this, deltaTime] { _internalUpdate(deltaTime); });
     }
 
     void Object::_internalStart()
@@ -46,7 +46,7 @@ namespace Dog
         this->camera = camera;
     }
 
-    void Object::setSize(glm::vec3 min, glm::vec3 max)
+    void Object::setSize(const glm::vec3 min, const glm::vec3 max)
     {
         aabb.setMinMax(min, max);
         sizeIsSet = true;

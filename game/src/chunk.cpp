@@ -2,10 +2,10 @@
 #include "gl/input.hpp"
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include <chrono>
 
-Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise)
+Chunk::Chunk(const glm::vec3 position, const siv::PerlinNoise *perlinNoise)
 {
     setSize(position, position + glm::vec3(VoxelData::CHUNK_SIZE, VoxelData::CHUNK_SIZE_Y, VoxelData::CHUNK_SIZE));
 
@@ -15,32 +15,40 @@ Chunk::Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise)
     createMesh();
 }
 
-Chunk::~Chunk() {}
+Chunk::~Chunk() = default;
 
 void Chunk::start()
 {
     Object::start();
 }
 
-void Chunk::update(float deltaTime)
+void Chunk::update(const float deltaTime)
 {
     Object::update(deltaTime);
 }
 
 void Chunk::createMesh()
 {
-    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+    const std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
     mesh.vertices.reserve(VoxelData::CHUNK_SIZE * VoxelData::CHUNK_SIZE_Y * VoxelData::CHUNK_SIZE * 24);
     mesh.indices.reserve(VoxelData::CHUNK_SIZE * VoxelData::CHUNK_SIZE_Y * VoxelData::CHUNK_SIZE * 36);
 
-    for (double x = 0; x < VoxelData::CHUNK_SIZE; x += VoxelData::VOXEL_SIZE)
+    constexpr int voxelCountX = VoxelData::CHUNK_SIZE / VoxelData::VOXEL_SIZE;
+    constexpr int voxelCountY = VoxelData::CHUNK_SIZE_Y / VoxelData::VOXEL_SIZE;
+    constexpr int voxelCountZ = VoxelData::CHUNK_SIZE / VoxelData::VOXEL_SIZE;
+
+    for (int i = 0; i < voxelCountX; i++)
     {
-        for (double y = 0; y < VoxelData::CHUNK_SIZE_Y; y += VoxelData::VOXEL_SIZE)
+        for (int j = 0; j < voxelCountY; j++)
         {
-            for (double z = 0; z < VoxelData::CHUNK_SIZE; z += VoxelData::VOXEL_SIZE)
+            for (int k = 0; k < voxelCountZ; k++)
             {
-                double generatedY = getBlockHeight(x, z);
+                const double x = i * VoxelData::VOXEL_SIZE;
+                const double y = j * VoxelData::VOXEL_SIZE;
+                const double z = k * VoxelData::VOXEL_SIZE;
+
+                const double generatedY = getBlockHeight(x, z);
                 createBlock(x, generatedY - y, z);
             }
         }
@@ -48,22 +56,22 @@ void Chunk::createMesh()
 
     mesh.optimize();
 
-    std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+    const std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 
     std::cout << "Time difference = " << std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count() << "[ms]" << std::endl;
 }
 
-void Chunk::createBlock(double x, double y, double z)
+void Chunk::createBlock(const double x, const double y, const double z)
 {
-    uint_least8_t R = 0;
-    uint_least8_t G = rand() % 255;
-    uint_least8_t B = 0;
+    const uint_least8_t R = 0;
+    const uint_least8_t G = rand() % 255;
+    const uint_least8_t B = 0;
 
-    glm::vec3 blockPos = glm::vec3(x, y, z);
+    const auto blockPos = glm::vec3(x, y, z);
 
     for (int p = 0; p < VoxelData::faces.size(); p++)
     {
-        glm::vec3 facePos = blockPos + VoxelData::faces[p];
+        const glm::vec3 facePos = blockPos + VoxelData::faces[p];
 
         if (!isFaceVisible(facePos.x, facePos.y, facePos.z, static_cast<Direction>(p)))
         {
@@ -72,7 +80,7 @@ void Chunk::createBlock(double x, double y, double z)
 
         for (uint32_t i = 0; i < 4; i++)
         {
-            glm::vec3 position = VoxelData::vertices[VoxelData::indices[p][i]] + blockPos;
+            const glm::vec3 position = VoxelData::vertices[VoxelData::indices[p][i]] + blockPos;
             mesh.vertices.push_back({{position.x, position.y, position.z},
                                      {R, G, B}});
         }
@@ -88,7 +96,7 @@ void Chunk::createBlock(double x, double y, double z)
     }
 }
 
-bool Chunk::isFaceVisible(double x, double y, double z, Direction direction)
+bool Chunk::isFaceVisible(const double x, const double y, const double z, const Direction direction)
 {
     if (x < 0 || y < 0 || z < 0)
     {
@@ -120,10 +128,10 @@ bool Chunk::isFaceVisible(double x, double y, double z, Direction direction)
     }
 }
 
-double Chunk::getBlockHeight(double x, double z)
+double Chunk::getBlockHeight(const double x, const double z)
 {
-    int xKey = std::round(x * 10);
-    int zKey = std::round(z * 10);
+    const int xKey = std::round(x * 10);
+    const int zKey = std::round(z * 10);
 
     RoundedCoords coords = {xKey, zKey};
 
@@ -135,9 +143,9 @@ double Chunk::getBlockHeight(double x, double z)
     glm::vec3 heightPos = glm::vec3(x, 0, z) + transform.getPosition();
     const double y = perlinNoise->octave2D_01(heightPos.x * 0.1, heightPos.z * 0.1, 6) * (VoxelData::CHUNK_SIZE_Y / VoxelData::VOXEL_SIZE);
 
-    int yInt = std::round(y);
+    const int yInt = std::round(y);
 
-    double value = yInt * VoxelData::VOXEL_SIZE;
+    const double value = yInt * VoxelData::VOXEL_SIZE;
 
     blockHeights[coords] = value;
 

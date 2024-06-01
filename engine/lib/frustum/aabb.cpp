@@ -3,14 +3,12 @@
 namespace Dog
 {
     AABB::AABB()
-    {
-    }
+    = default;
 
     AABB::~AABB()
-    {
-    }
+    = default;
 
-    void AABB::setMinMax(glm::vec3 min, glm::vec3 max)
+    void AABB::setMinMax(const glm::vec3 min, const glm::vec3 max)
     {
         this->min = min;
         this->max = max;

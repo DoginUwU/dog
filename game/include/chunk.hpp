@@ -1,7 +1,6 @@
 #include "object.hpp"
 #include "perlin_noise.hpp"
 #include "voxel.hpp"
-#include "frustum/aabb.hpp"
 
 #include <map>
 
@@ -22,8 +21,8 @@ public:
     Chunk(glm::vec3 position, const siv::PerlinNoise *perlinNoise);
     ~Chunk();
 
-    void start();
-    void update(float deltaTime);
+    void start() override;
+    void update(float deltaTime) override;
 
 private:
     const siv::PerlinNoise *perlinNoise;

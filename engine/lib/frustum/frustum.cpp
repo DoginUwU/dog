@@ -4,7 +4,7 @@
 
 namespace Dog
 {
-    Frustum::Frustum(glm::mat4 viewProjection)
+    Frustum::Frustum(const glm::mat4 viewProjection)
     {
         frustrate(viewProjection);
     }
@@ -17,7 +17,7 @@ namespace Dog
         }
     }
 
-    void Frustum::frustrate(glm::mat4 viewProjection)
+    void Frustum::frustrate(const glm::mat4 viewProjection)
     {
         glm::mat4 clip = glm::transpose(viewProjection);
 
@@ -28,17 +28,17 @@ namespace Dog
         planes[4] = new Plane(clip[3] + clip[2]);
         planes[5] = new Plane(clip[3] - clip[2]);
 
-        for (int i = 0; i < 6; i++)
+        for (const auto & plane : planes)
         {
-            planes[i]->normalize();
+            plane->normalize();
         }
     }
 
-    bool Frustum::pointInFrustum(glm::vec3 point, float radius)
+    bool Frustum::pointInFrustum(const glm::vec3 point, const float radius) const
     {
-        for (int i = 0; i < 6; i++)
+        for (const auto plane : planes)
         {
-            if (planes[i]->distance(point) <= -radius)
+            if (plane->distance(point) <= -radius)
             {
                 return false;
             }
@@ -47,17 +47,17 @@ namespace Dog
         return true;
     }
 
-    bool Frustum::aabbInFrustum(AABB *aabb)
+    bool Frustum::aabbInFrustum(const AABB *aabb) const
     {
-        for (int i = 0; i < 6; i++)
+        for (const auto plane : planes)
         {
-            glm::vec3 extent = glm::vec3(0.0f);
+            auto extent = glm::vec3(0.0f);
 
-            extent.x = planes[i]->quaternion.x >= 0 ? aabb->max.x : aabb->min.x;
-            extent.y = planes[i]->quaternion.y >= 0 ? aabb->max.y : aabb->min.y;
-            extent.z = planes[i]->quaternion.z >= 0 ? aabb->max.z : aabb->min.z;
+            extent.x = plane->quaternion.x >= 0 ? aabb->max.x : aabb->min.x;
+            extent.y = plane->quaternion.y >= 0 ? aabb->max.y : aabb->min.y;
+            extent.z = plane->quaternion.z >= 0 ? aabb->max.z : aabb->min.z;
 
-            if (planes[i]->distance(extent) < 0)
+            if (plane->distance(extent) < 0)
             {
                 return false;
             }

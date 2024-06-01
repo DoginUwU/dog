@@ -18,7 +18,7 @@ namespace Dog
 
         void toggleWireframeMode();
 
-        void setTitle(std::string title) const;
+        void setTitle(const std::string& title) const;
 
         bool shouldClose() const;
 

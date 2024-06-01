@@ -77,7 +77,7 @@ namespace Dog
         }
     }
 
-    void Window::setTitle(std::string title) const
+    void Window::setTitle(const std::string& title) const
     {
         glfwSetWindowTitle(window, title.c_str());
     }

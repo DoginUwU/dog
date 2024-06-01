@@ -15,7 +15,7 @@ namespace Dog
         DrawQueue::instance = this;
     }
 
-    void DrawQueue::addTask(std::function<void()> task)
+    void DrawQueue::addTask(const std::function<void()>& task)
     {
         std::lock_guard<std::mutex> lock(queueMutex);
 

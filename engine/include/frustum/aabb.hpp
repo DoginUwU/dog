@@ -7,8 +7,8 @@ namespace Dog
     class AABB
     {
     public:
-        glm::vec3 min;
-        glm::vec3 max;
+        glm::vec3 min{};
+        glm::vec3 max{};
 
         AABB();
         ~AABB();

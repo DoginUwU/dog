@@ -9,8 +9,8 @@ public:
     FlyCamera();
     ~FlyCamera();
 
-    void start();
-    void update(float deltaTime);
+    void start() override;
+    void update(float deltaTime) override;
 
 private:
     float yaw = 0;

@@ -11,7 +11,7 @@ namespace Dog
         uint viewLoc;
         uint projectionLoc;
 
-        Shader(const std::string vertexPath, const std::string fragmentPath);
+        Shader(const std::string& vertexPath, const std::string& fragmentPath);
         ~Shader();
 
         void use() const;

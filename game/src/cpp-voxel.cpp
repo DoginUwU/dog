@@ -13,7 +13,7 @@ int main(int, char **)
         Engine engine;
         MainScene mainScene;
 
-        engine.setActiveScene(&mainScene);
+        Dog::Engine::setActiveScene(&mainScene);
         engine.run();
     }
     catch (const std::exception &e)

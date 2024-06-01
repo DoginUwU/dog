@@ -2,7 +2,7 @@
 #define DOG_MESH_HPP
 #include "transform.hpp"
 
-#include <stdint.h>
+#include <cstdint>
 #include <vector>
 
 namespace Dog
@@ -18,21 +18,21 @@ namespace Dog
     public:
         std::vector<Vertex> vertices;
         std::vector<uint32_t> indices;
-        Transform *transform;
+        Transform *transform{};
         bool isActive = true;
 
         Mesh();
         ~Mesh();
 
         void init();
-        void draw();
+        void draw() const;
         void clear();
         void optimize();
 
     protected:
-        uint32_t vao;
-        uint32_t vbo;
-        uint32_t ebo;
+        uint32_t vao{};
+        uint32_t vbo{};
+        uint32_t ebo{};
     };
 }
 #endif

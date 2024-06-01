@@ -9,10 +9,10 @@ using namespace std;
 
 namespace Dog
 {
-    Shader::Shader(const std::string vertexPath, const std::string fragmentPath)
+    Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath)
     {
-        uint vertexShader = loadShader(vertexPath, GL_VERTEX_SHADER);
-        uint fragmentShader = loadShader(fragmentPath, GL_FRAGMENT_SHADER);
+        const auto vertexShader = loadShader(vertexPath, GL_VERTEX_SHADER);
+        const auto fragmentShader = loadShader(fragmentPath, GL_FRAGMENT_SHADER);
 
         program = glCreateProgram();
         glAttachShader(program, vertexShader);

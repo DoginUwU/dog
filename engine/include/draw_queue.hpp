@@ -13,7 +13,7 @@ namespace Dog
 
         DrawQueue();
 
-        void addTask(std::function<void()> task);
+        void addTask(const std::function<void()>& task);
         void executeTasks();
 
     private:

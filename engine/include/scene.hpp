@@ -15,15 +15,15 @@ namespace Dog
         Scene();
         ~Scene();
 
-        void update(float deltaTime);
+        void update(float deltaTime) const;
         virtual void start();
 
         void instantiate(Component *component);
-        void destroy(Component *component);
+        void destroy(const Component *component);
 
     private:
         std::vector<std::unique_ptr<Component>> components;
-        Camera *mainCamera;
+        Camera *mainCamera{};
     };
 }
 #endif

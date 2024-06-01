@@ -2,19 +2,19 @@
 
 namespace Dog
 {
-    Plane::Plane(glm::vec4 quaternion)
+    Plane::Plane(const glm::vec4 quaternion)
     {
         this->quaternion = quaternion;
     }
 
     void Plane::normalize()
     {
-        float length = glm::length(quaternion);
+        const float length = glm::length(quaternion);
 
         quaternion /= length;
     }
 
-    float Plane::distance(glm::vec3 point)
+    float Plane::distance(const glm::vec3 point) const
     {
         return glm::dot(glm::vec3(quaternion), point) + quaternion.w;
     }

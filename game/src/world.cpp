@@ -2,7 +2,6 @@
 #include "engine.hpp"
 
 #include <iostream>
-#include <math.h>
 
 World::World(Dog::Camera *camera)
 {
@@ -34,15 +33,15 @@ void World::updateChunksAroundPlayer()
 {
     while (true)
     {
-        glm::vec3 playerPosition = camera->position;
+        const glm::vec3 playerPosition = camera->position;
 
-        uint16_t playerChunkX = playerPosition.x / VoxelData::CHUNK_SIZE;
-        uint16_t playerChunkZ = playerPosition.z / VoxelData::CHUNK_SIZE;
+        const uint16_t playerChunkX = playerPosition.x / VoxelData::CHUNK_SIZE;
+        const uint16_t playerChunkZ = playerPosition.z / VoxelData::CHUNK_SIZE;
 
-        uint16_t playerMinChunkX = std::max(0, (int)playerChunkX - VoxelData::RENDER_DISTANCE);
-        uint16_t playerMinChunkZ = std::max(0, (int)playerChunkZ - VoxelData::RENDER_DISTANCE);
-        uint16_t playerMaxChunkX = playerChunkX + VoxelData::RENDER_DISTANCE;
-        uint16_t playerMaxChunkZ = playerChunkZ + VoxelData::RENDER_DISTANCE;
+        const uint16_t playerMinChunkX = std::max(0, (int)playerChunkX - VoxelData::RENDER_DISTANCE);
+        const uint16_t playerMinChunkZ = std::max(0, (int)playerChunkZ - VoxelData::RENDER_DISTANCE);
+        const uint16_t playerMaxChunkX = playerChunkX + VoxelData::RENDER_DISTANCE;
+        const uint16_t playerMaxChunkZ = playerChunkZ + VoxelData::RENDER_DISTANCE;
 
         for (uint16_t x = playerMinChunkX; x < playerMaxChunkX; x++)
         {
@@ -62,8 +61,8 @@ void World::updateChunksAroundPlayer()
                 continue;
             }
 
-            uint16_t chunkX = chunk->transform.getPosition().x / VoxelData::CHUNK_SIZE;
-            uint16_t chunkZ = chunk->transform.getPosition().z / VoxelData::CHUNK_SIZE;
+            const uint16_t chunkX = chunk->transform.getPosition().x / VoxelData::CHUNK_SIZE;
+            const uint16_t chunkZ = chunk->transform.getPosition().z / VoxelData::CHUNK_SIZE;
 
             if (chunkX < playerMinChunkX || chunkX >= playerMaxChunkX || chunkZ < playerMinChunkZ || chunkZ >= playerMaxChunkZ)
             {
@@ -74,9 +73,9 @@ void World::updateChunksAroundPlayer()
     }
 }
 
-void World::createChunk(uint16_t x, uint16_t z)
+void World::createChunk(const uint16_t x, const uint16_t z)
 {
-    Chunk *chunk = new Chunk(glm::vec3(x * VoxelData::CHUNK_SIZE, 0, z * VoxelData::CHUNK_SIZE), &perlinNoise);
+    auto *chunk = new Chunk(glm::vec3(x * VoxelData::CHUNK_SIZE, 0, z * VoxelData::CHUNK_SIZE), &perlinNoise);
     std::cout << "Chunk: " << x << ", " << z << std::endl;
 
     chunkMutex.lock();
@@ -86,7 +85,7 @@ void World::createChunk(uint16_t x, uint16_t z)
     chunkMutex.unlock();
 }
 
-void World::destroyChunk(uint16_t x, uint16_t z)
+void World::destroyChunk(const uint16_t x, const uint16_t z)
 {
     Chunk *chunk = chunks[x][z];
 

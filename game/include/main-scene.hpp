@@ -1,22 +1,21 @@
 #include "scene.hpp"
 #include "fly-camera.hpp"
 #include "world.hpp"
-#include "gl/input.hpp"
 
 using namespace Dog;
 
 class MainScene : public Scene
 {
-    void start()
+    void start() override
     {
         Scene::start();
 
-        FlyCamera *camera = new FlyCamera();
+        auto *camera = new FlyCamera();
         instantiate(camera);
         instantiate(new World(camera));
     }
 
-    void update(float deltaTime)
+    void update(const float deltaTime)
     {
         Scene::update(deltaTime);
     }

@@ -51,10 +51,10 @@ public:
 
     // };
 
-    static constexpr double CHUNK_SIZE = 16;
-    static constexpr double CHUNK_SIZE_Y = 0.2f;
-    static const uint_least8_t RENDER_DISTANCE = 8;
-    static const uint16_t WORLD_SIZE = 12;
-    static const uint16_t WORLD_SIZE_IN_CHUNK_SIZE = WORLD_SIZE * CHUNK_SIZE;
+    static constexpr int CHUNK_SIZE = 32;
+    static constexpr int CHUNK_SIZE_Y = 2;
+    static constexpr uint_least8_t RENDER_DISTANCE = 8;
+    static constexpr uint16_t WORLD_SIZE = 12;
+    static constexpr uint16_t WORLD_SIZE_IN_CHUNK_SIZE = WORLD_SIZE * CHUNK_SIZE;
 };
 #endif

@@ -6,19 +6,17 @@
 using namespace Dog;
 
 FlyCamera::FlyCamera()
-{
-}
+= default;
 
 FlyCamera::~FlyCamera()
-{
-}
+= default;
 
 void FlyCamera::start()
 {
     Camera::start();
 }
 
-void FlyCamera::update(float deltaTime)
+void FlyCamera::update(const float deltaTime)
 {
     Camera::update(deltaTime);
 
@@ -26,9 +24,9 @@ void FlyCamera::update(float deltaTime)
     processMouse(Input::mouseX, Input::mouseY);
 }
 
-void FlyCamera::processInput(float deltaTime)
+void FlyCamera::processInput(const float deltaTime)
 {
-    float velocity = speed * deltaTime;
+    const float velocity = speed * deltaTime;
 
     if (Input::isKeyDown(GLFW_KEY_W))
     {
@@ -51,7 +49,7 @@ void FlyCamera::processInput(float deltaTime)
     }
 }
 
-void FlyCamera::processMouse(float x, float y)
+void FlyCamera::processMouse(const float x, const float y)
 {
     float xOffset = x - lastX;
     float yOffset = lastY - y;

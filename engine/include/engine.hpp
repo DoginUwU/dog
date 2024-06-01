@@ -14,15 +14,15 @@ namespace Dog
         ~Engine();
 
         void run();
-        void stop();
-        void setActiveScene(Scene *scene);
+        void stop() const;
+        static void setActiveScene(Scene *scene);
 
     private:
         Window *window;
 
         double previousTime;
         float lastFrame;
-        int frameCount;
+        int frameCount{};
 
         void mainLoop();
     };

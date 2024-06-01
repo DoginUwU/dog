@@ -8,7 +8,7 @@ namespace Dog
         glfwSetCursorPosCallback(window, mouseCallback);
     }
 
-    void Input::keyCallback(GLFWwindow *window, int key, int scancode, int action, int mode)
+    void Input::keyCallback(GLFWwindow *window, const int key, int scancode, const int action, int mode)
     {
         if (action == GLFW_PRESS)
         {
@@ -32,12 +32,12 @@ namespace Dog
         return false;
     }
 
-    bool Input::isKeyDown(int key)
+    bool Input::isKeyDown(const int key)
     {
         return keys[key];
     }
 
-    void Input::mouseCallback(GLFWwindow *window, double xpos, double ypos)
+    void Input::mouseCallback(GLFWwindow *window, const double xpos, const double ypos)
     {
         mouseX = xpos;
         mouseY = ypos;
