@@ -1,2 +1,4 @@
 build
-/cmake-build-debug/*
+game/cmake-build-debug
+engine/cmake-build-debug
+cmake-build-debug
