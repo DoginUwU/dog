@@ -2,7 +2,8 @@
 #include <engine.hpp>
 
 int main() {
-    Engine engine;
+    const Engine engine;
+    engine.loop();
 
     return EXIT_SUCCESS;
 }

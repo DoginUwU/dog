@@ -8,6 +8,7 @@
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexRemoved" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="3" type="long" />
   </component>
   <component name="CMakePresetLoader">{
   &quot;useNewFormat&quot;: true
@@ -21,7 +22,10 @@
   <component name="CMakeRunConfigurationManager">
     <generated>
       <config projectName="dog" targetName="dog-engine" />
+      <config projectName="dog" targetName="uninstall" />
+      <config projectName="dog" targetName="glfw" />
       <config projectName="dog" targetName="game" />
+      <config projectName="dog" targetName="update_mappings" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -30,111 +34,18 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/reply/cache-v2-b3f65b2a302706ee1c93.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-35251a26f7553765afd7.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-b7c1f54b0b515e34248c.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/reply/index-2024-11-10T19-12-56-0710.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/reply/target-dog-engine-Debug-8a085e6c4093dc315603.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-b202573adb92d1fd7ac8.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/a.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdCXX/a.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/dog-engine.dir/CXX.dd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/dog-engine.dir/CXXDependInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/dog-engine.dir/CXXModules.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/dog-engine.dir/lib/engine.cpp.ddi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/dog-engine.dir/lib/engine.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/dog-engine.dir/lib/engine.cpp.o.ddi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/dog-engine.dir/lib/engine.cpp.o.ddi.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/dog-engine.dir/lib/engine.cpp.o.ddi.i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/dog-engine.dir/lib/engine.cpp.o.modmap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/dog.dir/CXXDependInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/build.ninja" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/cmake-build-debug/libdog-engine.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/dependencies/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/engine.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/graphics/window/glfw_window.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/graphics/window/window_api.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/engine.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/graphics/window/glfw_window.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/query/cache-v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/reply/cache-v2-f39b502b874e1c5f0381.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-a6a08a1a807cf3dc71d6.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-456c2e9dad60a107a9a7.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/reply/index-2024-11-10T18-45-40-0242.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/reply/target-game-Debug-a79447af11c8c2ca62c4.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-b202573adb92d1fd7ac8.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/3.29.6/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/a.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdCXX/a.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/dog.dir/CXX.dd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/dog.dir/CXXDependInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/dog.dir/CXXModules.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/dog.dir/src/main.cpp.ddi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/dog.dir/src/main.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/dog.dir/src/main.cpp.o.ddi" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/dog.dir/src/main.cpp.o.ddi.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/dog.dir/src/main.cpp.o.ddi.i" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/dog.dir/src/main.cpp.o.modmap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/game.dir/CXXDependInfo.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/build.ninja" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/dog" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/cmake-build-debug/libdog.a" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" afterPath="$PROJECT_DIR$/engine/cmake-build-debug/.cmake/api/v1/query/cache-v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/discord.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="chore: update .gitignore">
+      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/dependencies/glfw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/include/graphics/graphics_factory.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_factory.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/include/engine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/engine.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/include/graphics/window/glfw_window.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/window/glfw_window.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/include/graphics/window/window_api.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/window/window_api.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/lib/engine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/engine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/window/glfw_window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/window/glfw_window.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +75,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/engine/lib/engine.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/src/main.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -235,8 +152,26 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="glfw" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dog" TARGET_NAME="glfw" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="uninstall" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dog" TARGET_NAME="uninstall" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="update_mappings" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dog" TARGET_NAME="update_mappings" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.dog-engine" />
+      <item itemvalue="CMake Application.uninstall" />
+      <item itemvalue="CMake Application.glfw" />
+      <item itemvalue="CMake Application.update_mappings" />
       <item itemvalue="CMake Application.game" />
       <item itemvalue="CMake Debug.dog" />
     </list>
@@ -254,8 +189,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731263585290</updated>
-      <workItem from="1731263587729" duration="3311000" />
+      <workItem from="1731263587729" duration="5079000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: add initial project structure">
+      <option name="closed" value="true" />
+      <created>1731266953868</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731266953868</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chore: update .gitignore">
+      <option name="closed" value="true" />
+      <created>1731267008691</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731267008691</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,5 +217,10 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: add initial project structure" />
+    <MESSAGE value="chore: update .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: update .gitignore" />
   </component>
 </project>

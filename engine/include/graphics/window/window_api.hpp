@@ -5,5 +5,10 @@ class WindowAPI {
 public:
     virtual void create_window(int width, int height, const std::string &title) = 0;
 
+    virtual void update() = 0;
+
     virtual bool should_close() = 0;
+
+    virtual ~WindowAPI() {
+    };
 };
