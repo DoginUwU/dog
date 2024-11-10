@@ -15,4 +15,6 @@ target_include_directories(dog-engine PUBLIC include)
 
 add_subdirectory(dependencies/glfw)
 
-target_link_libraries(dog-engine glfw)
+find_package(OpenGL REQUIRED)
+
+target_link_libraries(dog-engine glfw ${OPENGL_LIBRARIES})
