@@ -10,8 +10,12 @@ public:
 
     bool should_close() override;
 
+    WindowProcAddress get_process_address(const char *name) override;
+
     ~GLFWWindow() override;
 
 private:
+    static void glfw_key_callback(GLFWwindow *window, const int key, int scancode, const int action, int mode);
+
     GLFWwindow *glfw_window = nullptr;
 };

@@ -9,7 +9,6 @@ public:
     }
 
     void update() override {
-        Logger::info("Timer ID %d", 1);
     }
 
     ~Timer() override = default;

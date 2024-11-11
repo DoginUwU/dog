@@ -14,7 +14,8 @@ add_library(dog-engine STATIC ${SOURCES} ${HEADERS})
 target_include_directories(dog-engine PUBLIC include)
 
 add_subdirectory(dependencies/glfw)
+add_subdirectory(dependencies/glad)
 
 find_package(OpenGL REQUIRED)
 
-target_link_libraries(dog-engine glfw ${OPENGL_LIBRARIES})
+target_link_libraries(dog-engine glfw glad ${OPENGL_LIBRARIES})

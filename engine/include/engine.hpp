@@ -13,8 +13,6 @@ public:
     void loop() const;
 
     std::unique_ptr<GameManager> game_manager;
-
-private:
-    std::unique_ptr<WindowAPI> window;
-    std::unique_ptr<RendererAPI> renderer;
+    inline static std::unique_ptr<RendererAPI> renderer = nullptr;
+    inline static std::unique_ptr<WindowAPI> window = nullptr;
 };

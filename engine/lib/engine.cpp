@@ -1,6 +1,7 @@
 #include <engine.hpp>
 
 #include "graphics/graphics_factory.hpp"
+#include "graphics/shaders.hpp"
 #include "graphics/opengl/opengl_factory.hpp"
 
 Engine::Engine() {
@@ -13,6 +14,9 @@ Engine::Engine() {
     renderer->init();
 
     game_manager = std::make_unique<GameManager>();
+
+    // TODO: check if here it's better place to it
+    Shaders::start();
 }
 
 void Engine::loop() const {
