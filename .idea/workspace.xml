@@ -34,21 +34,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="feat: add initial renderer_api">
-      <change afterPath="$PROJECT_DIR$/engine/include/core/game_manager.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/core/object.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/core/scene.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/core/game_manager.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/core/scene.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/include/main_scene.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/include/timer.hpp" afterDir="false" />
+    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="feat: add object and scene manager">
+      <change afterPath="$PROJECT_DIR$/engine/include/core/logger.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/lib/core/logger.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/engine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/engine.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/graphics_factory.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/graphics_factory.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_factory.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_factory.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/window/window_api.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/window/window_api.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/engine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/engine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/include/main_scene.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/main_scene.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/include/timer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/timer.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +128,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "dynamic.analysis.tools.clion.profiler",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -206,7 +197,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731263585290</updated>
-      <workItem from="1731263587729" duration="15765000" />
+      <workItem from="1731263587729" duration="18777000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add initial project structure">
       <option name="closed" value="true" />
@@ -240,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731270939935</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: add object and scene manager">
+      <option name="closed" value="true" />
+      <created>1731284499473</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1731284499473</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +255,7 @@
     <MESSAGE value="chore: update .gitignore" />
     <MESSAGE value="feat: add opengl_factory.hpp" />
     <MESSAGE value="feat: add initial renderer_api" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add initial renderer_api" />
+    <MESSAGE value="feat: add object and scene manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add object and scene manager" />
   </component>
 </project>

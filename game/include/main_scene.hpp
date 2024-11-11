@@ -7,6 +7,8 @@ class MainScene final : public Scene {
 public:
     void start() override {
         add_object(std::make_unique<Timer>());
+        add_object(std::make_unique<Timer>());
+        add_object(std::make_unique<Timer>());
     }
 
     void update() override {
