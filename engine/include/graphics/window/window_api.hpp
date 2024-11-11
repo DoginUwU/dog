@@ -9,6 +9,5 @@ public:
 
     virtual bool should_close() = 0;
 
-    virtual ~WindowAPI() {
-    };
+    virtual ~WindowAPI() = default;
 };

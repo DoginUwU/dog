@@ -10,6 +10,5 @@ public:
 
     virtual std::unique_ptr<RendererAPI> create_renderer_api() = 0;
 
-    virtual ~GraphicsFactory() {
-    };
+    virtual ~GraphicsFactory() = default;
 };

@@ -34,17 +34,21 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="feat: add opengl_factory.hpp">
-      <change afterPath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_api.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/graphics/renderer_api.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_api.cpp" afterDir="false" />
+    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="feat: add initial renderer_api">
+      <change afterPath="$PROJECT_DIR$/engine/include/core/game_manager.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/include/core/object.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/include/core/scene.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/lib/core/game_manager.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/engine/lib/core/scene.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/include/main_scene.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/include/timer.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/include/engine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/engine.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/include/graphics/graphics_factory.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/graphics_factory.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_factory.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_factory.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/include/graphics/window/window_api.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/window/window_api.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/lib/engine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/engine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/window/glfw_window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/window/glfw_window.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +84,19 @@
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/doginuwu/Documents/Projects/dog/engine/include/graphics/opengl/opengl_factory.hpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/doginuwu/Documents/Projects/dog/engine/lib/engine.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/doginuwu/Documents/Projects/dog/engine/lib/engine.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/engine/lib/engine.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/src/main.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -120,7 +137,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "actions.on.save",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -189,7 +206,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731263585290</updated>
-      <workItem from="1731263587729" duration="7210000" />
+      <workItem from="1731263587729" duration="15765000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add initial project structure">
       <option name="closed" value="true" />
@@ -215,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731268845515</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: add initial renderer_api">
+      <option name="closed" value="true" />
+      <created>1731270939935</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731270939935</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +255,7 @@
     <MESSAGE value="feat: add initial project structure" />
     <MESSAGE value="chore: update .gitignore" />
     <MESSAGE value="feat: add opengl_factory.hpp" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add opengl_factory.hpp" />
+    <MESSAGE value="feat: add initial renderer_api" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add initial renderer_api" />
   </component>
 </project>

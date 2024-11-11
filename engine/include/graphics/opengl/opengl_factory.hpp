@@ -13,6 +13,5 @@ public:
         return std::make_unique<OpenGLAPI>();
     }
 
-    ~OpenGLFactory() override {
-    };
+    ~OpenGLFactory() override = default;
 };
