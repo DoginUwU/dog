@@ -2,6 +2,7 @@
 
 void Scene::add_object(std::unique_ptr<Object> object) {
     object->start();
+    object->after_start();
     active_objects.push_back(std::move(object));
 }
 

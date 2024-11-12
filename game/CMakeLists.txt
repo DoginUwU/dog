@@ -15,4 +15,4 @@ target_include_directories(game PRIVATE include ../engine/include)
 target_link_libraries(game dog-engine)
 
 # TODO: Remove this
-file(COPY ../engine/resources DESTINATION ${CMAKE_BINARY_DIR}/game)
+file(COPY resources DESTINATION ${CMAKE_BINARY_DIR}/game)

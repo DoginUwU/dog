@@ -8,21 +8,26 @@
 class Cube final : public GameObject {
 public:
     void start() override {
+        shader = Engine::shader_library->get("Object");
+        mesh = Engine::factory->create_mesh();
+
         mesh->vertices = {
-            -1, 1, 0,
-            1, 1, 0,
-            1, -1, 0,
-            -1, -1, 0,
+            0.5f, 0.5f, 0.0f,
+            0.5f, -0.5f, 0.0f,
+            -0.5f, -0.5f, 0.0f,
+            -0.5f, 0.5f, 0.0f
         };
         mesh->indices = {
-            1, 2, 3,
-            1, 3, 4
+            0, 1, 3,
+            1, 2, 3
         };
 
         mesh->optimize();
     }
 
     void update() override {
+        GameObject::update();
+
         if (Input::is_key_down(KEYCODE_F)) {
             Logger::info("Apertei F :)");
         }

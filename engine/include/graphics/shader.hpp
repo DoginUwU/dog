@@ -9,14 +9,11 @@ enum class ShaderType {
 
 class Shader {
 public:
-    unsigned int program;
-    unsigned int location_model;
-    unsigned int location_view;
-    unsigned int location_projection;
+    virtual void bind() = 0;
 
-    Shader(const std::string &vertex_path, const std::string &fragment_path);
+    virtual void unbind() = 0;
 
-    ~Shader();
+    virtual ~Shader() = default;
 
 private:
     static uint load_shader(const std::string &path, ShaderType type);

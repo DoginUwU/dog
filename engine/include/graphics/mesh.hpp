@@ -1,11 +1,18 @@
 #pragma once
+
 #include <vector>
 
 class Mesh {
 public:
-    Mesh();
+    virtual void update() = 0;
 
-    ~Mesh();
+    virtual void bind() = 0;
+
+    virtual void unbind() = 0;
+
+    virtual void draw() = 0;
+
+    virtual ~Mesh() = default;
 
     void optimize();
 

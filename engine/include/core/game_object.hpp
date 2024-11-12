@@ -3,6 +3,7 @@
 
 #include "object.hpp"
 #include "graphics/mesh.hpp"
+#include "graphics/shader.hpp"
 
 class GameObject : public Object {
 public:
@@ -10,10 +11,16 @@ public:
     };
 
     void update() override {
+        draw();
     };
+
+    void draw() const;
+
+    void after_start() override;
 
     ~GameObject() override = default;
 
 protected:
-    std::unique_ptr<Mesh> mesh = std::make_unique<Mesh>();
+    std::unique_ptr<Mesh> mesh = nullptr;
+    std::shared_ptr<Shader> shader = nullptr;
 };
