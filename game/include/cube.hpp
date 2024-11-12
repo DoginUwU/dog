@@ -7,7 +7,7 @@
 class Cube final : public GameObject {
 public:
     void awake() override {
-        shader = Engine::shader_library->get("Object");
+        shader = GameManager::shader_library->get("Object");
         mesh = Engine::graphics_factory->create_mesh();
 
         mesh->vertices = {
@@ -29,7 +29,7 @@ public:
         GameObject::update();
 
         if (Input::is_key_down(KEYCODE_F)) {
-            Logger::info("Apertei F :)");
+            Logger::info("F is pressed :)");
         }
     }
 

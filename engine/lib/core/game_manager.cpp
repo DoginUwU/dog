@@ -1,5 +1,10 @@
 #include <core/game_manager.hpp>
 
+GameManager::GameManager() {
+    shader_library = std::make_unique<ShaderLibrary>();
+}
+
+
 void GameManager::set_active_scene(std::unique_ptr<Scene> scene) {
     active_scene = std::move(scene);
     active_scene->start();

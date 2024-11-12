@@ -7,7 +7,7 @@
 class MainScene final : public Scene {
 public:
     void start() override {
-        Engine::shader_library->add("Object", OBJECT_VERTEX_SHADER, OBJECT_FRAGMENT_SHADER);
+        GameManager::shader_library->add("Object", OBJECT_VERTEX_SHADER, OBJECT_FRAGMENT_SHADER);
 
         add_object(std::make_unique<Timer>());
         add_object(std::make_unique<Cube>());

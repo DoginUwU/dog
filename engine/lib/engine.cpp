@@ -12,8 +12,6 @@ Engine::Engine() {
     renderer = graphics_factory->create_renderer_api();
     renderer->init();
 
-    shader_library = std::make_unique<ShaderLibrary>();
-
     game_manager = std::make_unique<GameManager>();
 }
 
