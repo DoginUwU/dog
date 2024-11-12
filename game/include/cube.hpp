@@ -1,15 +1,14 @@
 #pragma once
 
-#include <core/game_object.hpp>
-
+#include "core/game_object.hpp"
 #include "core/input.hpp"
 #include "core/logger.hpp"
 
 class Cube final : public GameObject {
 public:
-    void start() override {
+    void awake() override {
         shader = Engine::shader_library->get("Object");
-        mesh = Engine::factory->create_mesh();
+        mesh = Engine::graphics_factory->create_mesh();
 
         mesh->vertices = {
             0.5f, 0.5f, 0.0f,
@@ -23,6 +22,7 @@ public:
         };
 
         mesh->optimize();
+        mesh->update();
     }
 
     void update() override {

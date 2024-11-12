@@ -15,7 +15,7 @@ public:
     ~GLFWWindow() override;
 
 private:
-    static void glfw_key_callback(GLFWwindow *window, const int key, int scancode, const int action, int mode);
+    static void glfw_key_callback(GLFWwindow *window, int key, int scancode, int action, int mode);
 
     GLFWwindow *glfw_window = nullptr;
 };

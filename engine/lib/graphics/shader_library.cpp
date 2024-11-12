@@ -3,7 +3,7 @@
 #include "engine.hpp"
 
 void ShaderLibrary::add(const std::string &name, const std::string &vertex_path, const std::string &fragment_path) {
-    shaders[name] = Engine::factory->create_shader(vertex_path, fragment_path);
+    shaders[name] = Engine::graphics_factory->create_shader(vertex_path, fragment_path);
 }
 
 std::shared_ptr<Shader> ShaderLibrary::get(const std::string &name) {

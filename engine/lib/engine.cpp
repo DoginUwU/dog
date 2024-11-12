@@ -4,12 +4,12 @@
 #include "graphics/opengl/opengl_factory.hpp"
 
 Engine::Engine() {
-    factory = std::make_unique<OpenGLFactory>();
+    graphics_factory = std::make_unique<OpenGLFactory>();
 
-    window = factory->create_window_api();
+    window = graphics_factory->create_window_api();
     window->create_window(800, 600, "Dog Engine");
 
-    renderer = factory->create_renderer_api();
+    renderer = graphics_factory->create_renderer_api();
     renderer->init();
 
     shader_library = std::make_unique<ShaderLibrary>();
@@ -17,7 +17,7 @@ Engine::Engine() {
     game_manager = std::make_unique<GameManager>();
 }
 
-void Engine::loop() const {
+void Engine::loop() {
     while (!window->should_close()) {
         renderer->clear();
         game_manager->update();

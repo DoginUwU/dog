@@ -12,11 +12,11 @@ class Engine {
 public:
     Engine();
 
-    void loop() const;
+    static void loop();
 
     inline static std::unique_ptr<ShaderLibrary> shader_library = nullptr;
     inline static std::unique_ptr<GameManager> game_manager = nullptr;
-    inline static std::unique_ptr<GraphicsFactory> factory = nullptr;
+    inline static std::unique_ptr<GraphicsFactory> graphics_factory = nullptr;
     inline static std::unique_ptr<RendererAPI> renderer = nullptr;
     inline static std::unique_ptr<WindowAPI> window = nullptr;
 };

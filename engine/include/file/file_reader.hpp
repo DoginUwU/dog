@@ -13,7 +13,7 @@ public:
             return "FAILED";
         }
 
-        const std::string source((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+        const std::string source((std::istreambuf_iterator(file)), std::istreambuf_iterator<char>());
 
         file.close();
 

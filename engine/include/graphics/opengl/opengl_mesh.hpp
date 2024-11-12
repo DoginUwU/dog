@@ -18,6 +18,8 @@ public:
     ~OpenGLMesh() override;
 
 private:
+    bool updated_first_time = false;
+
     uint32_t vao{};
     uint32_t vbo{};
     uint32_t ebo{};

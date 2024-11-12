@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-typedef void (*WindowProcAddress)(void);
+typedef void (*WindowProcAddress)();
 
 class WindowAPI {
 public:

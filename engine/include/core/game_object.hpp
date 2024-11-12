@@ -7,16 +7,17 @@
 
 class GameObject : public Object {
 public:
+    void awake() override {
+    }
+
     void start() override {
-    };
+    }
 
     void update() override {
         draw();
-    };
+    }
 
     void draw() const;
-
-    void after_start() override;
 
     ~GameObject() override = default;
 

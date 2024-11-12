@@ -2,9 +2,10 @@
 
 class Object {
 public:
-    virtual void start() = 0;
+    virtual void awake() {
+    };
 
-    virtual void after_start() {
+    virtual void start() {
     };
 
     virtual void update() = 0;
