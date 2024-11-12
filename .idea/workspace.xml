@@ -36,41 +36,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/engine/dependencies/glad/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/dependencies/glad/include/KHR/khrplatform.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/dependencies/glad/include/glad/gl.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/dependencies/glad/src/gl.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/core/game_object.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/core/input.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/graphics/mesh.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/graphics/shader.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/graphics/shaders.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/core/input.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/graphics/mesh.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/graphics/shader.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/graphics/shaders.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/resources/shaders/object.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/resources/shaders/object.vert" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/include/cube.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="feat: add GameObject and initial shaders loader">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/core/logger.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/logger.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/engine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/engine.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_api.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_api.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/renderer_api.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/renderer_api.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/window/glfw_window.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/window/glfw_window.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/window/window_api.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/window/window_api.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/core/logger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/core/logger.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/engine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/engine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_api.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_api.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/window/glfw_window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/window/glfw_window.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/include/main_scene.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/main_scene.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/include/timer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/timer.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/shaders.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/shaders.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/resources/shaders/object.vert" beforeDir="false" afterPath="$PROJECT_DIR$/engine/resources/shaders/object.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +69,38 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -165,11 +166,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.game">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="dog" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
       <method v="2" />
     </configuration>
@@ -204,13 +200,13 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.dog-engine" />
-      <item itemvalue="CMake Application.glad" />
-      <item itemvalue="CMake Application.uninstall" />
-      <item itemvalue="CMake Application.glfw" />
-      <item itemvalue="CMake Application.update_mappings" />
-      <item itemvalue="CMake Application.game" />
       <item itemvalue="CMake Debug.dog" />
+      <item itemvalue="CMake Application.dog-engine" />
+      <item itemvalue="CMake Application.game" />
+      <item itemvalue="CMake Application.glad" />
+      <item itemvalue="CMake Application.glfw" />
+      <item itemvalue="CMake Application.uninstall" />
+      <item itemvalue="CMake Application.update_mappings" />
     </list>
     <recent_temporary>
       <list>
@@ -228,7 +224,8 @@
       <updated>1731263585290</updated>
       <workItem from="1731263587729" duration="18983000" />
       <workItem from="1731349018509" duration="10389000" />
-      <workItem from="1731360844042" duration="1524000" />
+      <workItem from="1731360844042" duration="4824000" />
+      <workItem from="1731432833273" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add initial project structure">
       <option name="closed" value="true" />
@@ -278,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731287676766</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: add GameObject and initial shaders loader">
+      <option name="closed" value="true" />
+      <created>1731362664737</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1731362664737</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -307,6 +312,7 @@
     <MESSAGE value="feat: add initial renderer_api" />
     <MESSAGE value="feat: add object and scene manager" />
     <MESSAGE value="feat: add initia logger" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add initia logger" />
+    <MESSAGE value="feat: add GameObject and initial shaders loader" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add GameObject and initial shaders loader" />
   </component>
 </project>

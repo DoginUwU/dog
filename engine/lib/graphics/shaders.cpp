@@ -6,4 +6,3 @@ void Shaders::start() {
 
 void Shaders::clean() {
 }
-
