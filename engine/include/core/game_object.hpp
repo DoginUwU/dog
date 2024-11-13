@@ -2,6 +2,7 @@
 #include <memory>
 
 #include "object.hpp"
+#include "transform.hpp"
 #include "graphics/mesh.hpp"
 #include "graphics/shader.hpp"
 
@@ -22,6 +23,8 @@ public:
     ~GameObject() override = default;
 
 protected:
+    Transform transform;
+
     std::unique_ptr<Mesh> mesh = nullptr;
     std::shared_ptr<Shader> shader = nullptr;
 };

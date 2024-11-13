@@ -8,8 +8,11 @@ void GameObject::draw() const {
     Assert::check_nullptr(mesh, "GameObject without mesh called to draw");
 
     shader->bind();
+    shader->set_uniform("model", transform.matrix);
+
     mesh->bind();
     mesh->draw();
     mesh->unbind();
+
     shader->unbind();
 }

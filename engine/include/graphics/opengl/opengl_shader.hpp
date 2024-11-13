@@ -1,4 +1,7 @@
 #pragma once
+#include <unordered_map>
+
+#include "glad/gl.h"
 #include "graphics/shader.hpp"
 
 class OpenGLShader final : public Shader {
@@ -9,17 +12,17 @@ public:
 
     void unbind() override;
 
+    void set_uniform(const std::string &name, const Matrix4F &value) override;
+
     ~OpenGLShader() override;
 
 private:
     unsigned int program;
-    unsigned int location_model;
-    unsigned int location_view;
-    unsigned int location_projection;
+    std::unordered_map<std::string, GLint> uniforms;
 
-    static unsigned int load_shader(const char *, ShaderType type);
-
-    static unsigned int get_uniform_location(uint program, const std::string &name);
+    unsigned int load_shader(const char *, ShaderType type);
 
     static unsigned int link_shaders(const uint *shaders, size_t size);
+
+    GLint get_uniform_location(const std::string &name);
 };

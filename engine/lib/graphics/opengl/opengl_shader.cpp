@@ -1,5 +1,4 @@
 #include <graphics/opengl/opengl_shader.hpp>
-#include <glad/gl.h>
 
 #include "core/logger.hpp"
 
@@ -9,10 +8,6 @@ OpenGLShader::OpenGLShader(const std::string &vertex_source, const std::string &
 
     const uint32_t shaders[] = {vertex_shader, fragment_shader};
     program = link_shaders(shaders, std::size(shaders));
-
-    location_view = get_uniform_location(program, "view");
-    location_model = get_uniform_location(program, "model");
-    location_projection = get_uniform_location(program, "projection");
 }
 
 void OpenGLShader::bind() {
@@ -23,9 +18,22 @@ void OpenGLShader::unbind() {
     glUseProgram(0);
 }
 
+void OpenGLShader::set_uniform(const std::string &name, const Matrix4F &value) {
+    auto uniform_location = get_uniform_location(name);
 
-unsigned int OpenGLShader::get_uniform_location(const uint program, const std::string &name) {
-    return glGetUniformLocation(program, name.c_str());
+    if (uniform_location == GL_FALSE) {
+        uniform_location = glGetUniformLocation(program, name.c_str());
+    }
+
+    glUniformMatrix4fv(uniform_location, 1, GL_TRUE, value.elements.data());
+}
+
+GLint OpenGLShader::get_uniform_location(const std::string &name) {
+    if (const auto element = uniforms.find(name); element != uniforms.end()) {
+        return element->second;
+    }
+
+    return GL_FALSE;
 }
 
 unsigned int OpenGLShader::link_shaders(const uint *shaders, const size_t size) {
