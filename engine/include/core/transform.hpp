@@ -8,5 +8,7 @@ public:
 
     void translate(const Vector3F &translation);
 
+    void scale(const Vector3F &factor);
+
     Matrix4F matrix = Matrix4F::identity();
 };

@@ -9,7 +9,7 @@ public:
 
     void translate(const Vector3F &translation);
 
-    //Matrix4F operator+(const Matrix4F &other) const;
+    void scale(const Vector3F &factor);
 
     std::array<float, 16> elements{};
 };

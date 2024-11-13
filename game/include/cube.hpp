@@ -30,7 +30,7 @@ public:
 
         if (Input::is_key_down(KEYCODE_F)) {
             transform.translate(Vector3F{0.01f, -0.01f, 0.0f});
-            Logger::info("F is pressed :)");
+            transform.scale(Vector3F{1.02f, 1.0f, 1.0f});
         }
     }
 
