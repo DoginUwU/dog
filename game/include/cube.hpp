@@ -28,7 +28,7 @@ public:
         GameObject::update(delta_time);
 
         if (Input::is_key_down(KEYCODE_F)) {
-            transform.translate(Vector3F{0.0f, 0.0f, -0.01f});
+            transform.translate(Vector3F{0.0f, 0.0f, -0.1f});
         }
     }
 

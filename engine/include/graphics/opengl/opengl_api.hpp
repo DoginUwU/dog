@@ -11,5 +11,7 @@ public:
 
     void draw() override;
 
+    void toggle_wireframe_mode() override;
+
     ~OpenGLAPI() override;
 };

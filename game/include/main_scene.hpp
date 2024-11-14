@@ -17,6 +17,10 @@ public:
 
     void update(const float delta_time) override {
         Scene::update(delta_time);
+
+        if (Input::is_key_pressed(KEYCODE_P)) {
+            Engine::renderer->toggle_wireframe_mode();
+        }
     }
 
     ~MainScene() override = default;

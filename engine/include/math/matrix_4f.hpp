@@ -22,4 +22,8 @@ public:
     void look_at(const Vector3F &eye, const Vector3F &center, const Vector3F &up) {
         data = glm::lookAt(eye.data, center.data, up.data);
     }
+
+    void translate(const Vector3F &translation) {
+        data = glm::translate(data, translation.data);
+    }
 };

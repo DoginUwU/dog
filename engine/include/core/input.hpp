@@ -3,6 +3,7 @@
 
 #include "math/vector_2f.hpp"
 
+#define KEYCODE_P 0x50
 #define KEYCODE_F 0x46
 #define KEYCODE_W 0x57
 #define KEYCODE_A 0x41
@@ -20,6 +21,8 @@ public:
 
     static void mouse_pos_callback(float x, float y);
 
+    static bool is_key_pressed(int key);
+
     static bool is_key_down(int key);
 
     static bool is_key_up(int key);
@@ -27,6 +30,7 @@ public:
     inline static Vector2F mouse_position{0.0f, 0.0f};
 
 private:
+    inline static std::bitset<1024> keys_down = {};
     inline static std::bitset<1024> keys_pressed = {};
 };
 

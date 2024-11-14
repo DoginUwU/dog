@@ -16,11 +16,21 @@ void OpenGLAPI::init() {
 
 
 void OpenGLAPI::clear() {
-    glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+    glClearColor(0.5f, 0.95f, 1.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void OpenGLAPI::draw() {
+}
+
+void OpenGLAPI::toggle_wireframe_mode() {
+    wireframe = !wireframe;
+
+    if (wireframe) {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    } else {
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
 }
 
 OpenGLAPI::~OpenGLAPI() = default;

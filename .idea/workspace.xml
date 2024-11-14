@@ -37,39 +37,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="feat: add matrix scale">
-      <change afterPath="$PROJECT_DIR$/engine/dependencies/glm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/core/camera.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/core/time.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/math/vector_2f.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/core/camera.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/lib/core/time.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/include/fly_camera.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="feat: add camera and shaders projection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/core/game_manager.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/game_manager.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/core/game_object.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/game_object.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/core/input.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/input.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/core/object.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/object.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/core/scene.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/scene.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/core/transform.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/transform.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/window/glfw_window.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/window/glfw_window.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_api.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_api.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/include/graphics/renderer_api.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/renderer_api.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/include/math/matrix_4f.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/math/matrix_4f.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/math/vector_3f.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/math/vector_3f.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/core/game_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/core/game_manager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/core/game_object.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/core/game_object.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/core/input.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/core/input.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/core/scene.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/core/scene.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/lib/core/transform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/core/transform.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_shader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_shader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/window/glfw_window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/window/glfw_window.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/math/matrix_4f.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_api.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_api.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/include/cube.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/cube.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/include/main_scene.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/main_scene.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/include/timer.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/timer.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/resources/shaders/object.vert" beforeDir="false" afterPath="$PROJECT_DIR$/game/resources/shaders/object.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,7 +343,7 @@
       <workItem from="1731432833273" duration="17612000" />
       <workItem from="1731456989066" duration="4434000" />
       <workItem from="1731526746204" duration="12945000" />
-      <workItem from="1731619267379" duration="1579000" />
+      <workItem from="1731619267379" duration="5932000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add initial project structure">
       <option name="closed" value="true" />
@@ -482,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731526796873</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="feat: add camera and shaders projection">
+      <option name="closed" value="true" />
+      <created>1731620920533</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1731620920533</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,6 +502,7 @@
     <MESSAGE value="feat: add initial mat4 and transform" />
     <MESSAGE value="feat: add matrix translation" />
     <MESSAGE value="feat: add matrix scale" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add matrix scale" />
+    <MESSAGE value="feat: add camera and shaders projection" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add camera and shaders projection" />
   </component>
 </project>

@@ -8,5 +8,10 @@ public:
 
     virtual void draw() = 0;
 
+    virtual void toggle_wireframe_mode() = 0;
+
     virtual ~RendererAPI() = default;
+
+protected:
+    bool wireframe = false;
 };
