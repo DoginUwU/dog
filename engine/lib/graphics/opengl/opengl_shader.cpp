@@ -1,6 +1,7 @@
 #include <graphics/opengl/opengl_shader.hpp>
 
 #include "core/logger.hpp"
+#include "glm/gtc/type_ptr.hpp"
 
 OpenGLShader::OpenGLShader(const std::string &vertex_source, const std::string &fragment_source) {
     const auto vertex_shader = load_shader(vertex_source.c_str(), ShaderType::VERTEX);
@@ -21,11 +22,13 @@ void OpenGLShader::unbind() {
 void OpenGLShader::set_uniform(const std::string &name, const Matrix4F &value) {
     auto uniform_location = get_uniform_location(name);
 
-    if (uniform_location == GL_FALSE) {
+    if (uniform_location == -1) {
         uniform_location = glGetUniformLocation(program, name.c_str());
+        uniforms[name] = uniform_location;
     }
 
-    glUniformMatrix4fv(uniform_location, 1, GL_TRUE, value.elements.data());
+    // TODO: doesnt use glm here
+    glUniformMatrix4fv(uniform_location, 1, GL_FALSE, glm::value_ptr(value.data));
 }
 
 GLint OpenGLShader::get_uniform_location(const std::string &name) {
@@ -33,7 +36,7 @@ GLint OpenGLShader::get_uniform_location(const std::string &name) {
         return element->second;
     }
 
-    return GL_FALSE;
+    return -1;
 }
 
 unsigned int OpenGLShader::link_shaders(const uint *shaders, const size_t size) {

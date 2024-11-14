@@ -2,7 +2,6 @@
 
 #include "core/game_object.hpp"
 #include "core/input.hpp"
-#include "core/logger.hpp"
 
 class Cube final : public GameObject {
 public:
@@ -25,12 +24,11 @@ public:
         mesh->update();
     }
 
-    void update() override {
-        GameObject::update();
+    void update(const float delta_time) override {
+        GameObject::update(delta_time);
 
         if (Input::is_key_down(KEYCODE_F)) {
-            transform.translate(Vector3F{0.01f, -0.01f, 0.0f});
-            transform.scale(Vector3F{1.02f, 1.0f, 1.0f});
+            transform.translate(Vector3F{0.0f, 0.0f, -0.01f});
         }
     }
 

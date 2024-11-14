@@ -22,6 +22,9 @@ void GLFWWindow::create_window(const int width, const int height, const std::str
     glfwSwapInterval(1);
 
     glfwSetKeyCallback(glfw_window, glfw_key_callback);
+    glfwSetCursorPosCallback(glfw_window, glfw_mouse_pos_callback);
+
+    glfwSetInputMode(glfw_window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }
 
 void GLFWWindow::update() {
@@ -45,9 +48,13 @@ WindowProcAddress GLFWWindow::get_process_address(const char *name) {
 void GLFWWindow::glfw_key_callback(GLFWwindow *window, const int key, int scancode, const int action, int mode) {
     auto state = KeyState::Released;
 
-    if (action == GLFW_PRESS) {
+    if (action != GLFW_RELEASE) {
         state = KeyState::Pressed;
     }
 
     Input::key_callback(key, state);
+}
+
+void GLFWWindow::glfw_mouse_pos_callback(GLFWwindow *window, const double x, const double y) {
+    Input::mouse_pos_callback(static_cast<float>(x), static_cast<float>(y));
 }

@@ -17,5 +17,7 @@ public:
 private:
     static void glfw_key_callback(GLFWwindow *window, int key, int scancode, int action, int mode);
 
+    static void glfw_mouse_pos_callback(GLFWwindow *window, double x, double y);
+
     GLFWwindow *glfw_window = nullptr;
 };

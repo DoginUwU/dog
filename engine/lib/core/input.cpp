@@ -13,6 +13,10 @@ void Input::key_callback(const int key, const KeyState state) {
     }
 }
 
+void Input::mouse_pos_callback(float x, float y) {
+    mouse_position = {x, y};
+}
+
 bool Input::is_key_down(const int key) {
     return keys_pressed.test(key);
 }

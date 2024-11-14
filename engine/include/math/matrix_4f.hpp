@@ -1,15 +1,25 @@
 #pragma once
-#include <array>
+#include <glm/glm.hpp>
+#include "glm/ext/matrix_clip_space.hpp"
+#include "glm/ext/matrix_transform.hpp"
 
 #include "vector_3f.hpp"
 
 class Matrix4F {
 public:
-    static Matrix4F identity();
+    glm::mat4 data;
 
-    void translate(const Vector3F &translation);
+    Matrix4F() : data(0.0f) {
+    }
 
-    void scale(const Vector3F &factor);
+    explicit Matrix4F(const float s) : data(s) {
+    }
 
-    std::array<float, 16> elements{};
+    void perspective(const float fov, const float aspect_ratio, const float near, const float far) {
+        data = glm::perspective(glm::radians(fov), aspect_ratio, near, far);
+    }
+
+    void look_at(const Vector3F &eye, const Vector3F &center, const Vector3F &up) {
+        data = glm::lookAt(eye.data, center.data, up.data);
+    }
 };

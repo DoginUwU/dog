@@ -2,6 +2,9 @@
 
 GameManager::GameManager() {
     shader_library = std::make_unique<ShaderLibrary>();
+    time = std::make_unique<Time>();
+
+    time->start();
 }
 
 
@@ -10,9 +13,9 @@ void GameManager::set_active_scene(std::unique_ptr<Scene> scene) {
     active_scene->start();
 }
 
-void GameManager::update() const {
+void GameManager::update() {
     if (active_scene == nullptr) return;
 
-    active_scene->update();
+    time->update();
+    active_scene->update(time->get_delta_time());
 }
-

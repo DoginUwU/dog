@@ -15,7 +15,11 @@ target_include_directories(dog-engine PUBLIC include)
 
 add_subdirectory(dependencies/glfw)
 add_subdirectory(dependencies/glad)
+add_subdirectory(dependencies/glm)
+
+set_target_properties(glm PROPERTIES CXX_STANDARD 23)
+set_target_properties(glm PROPERTIES CXX_STANDARD_REQUIRED ON)
 
 find_package(OpenGL REQUIRED)
 
-target_link_libraries(dog-engine glfw glad ${OPENGL_LIBRARIES})
+target_link_libraries(dog-engine glfw glad glm ${OPENGL_LIBRARIES})

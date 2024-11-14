@@ -8,7 +8,7 @@ public:
     virtual void start() {
     };
 
-    virtual void update() = 0;
+    virtual void update(float delta_time) = 0;
 
     virtual ~Object() = default;
 };
