@@ -5,7 +5,8 @@
 class Chunk final : public GameObject {
 public:
     void start() override {
-        shader = GameManager::assets_library->get_shader("Object");
+        //shader = GameManager::assets_library->get_shader("Object");
+        material = GameManager::assets_library->get_material("Terrain1");
         mesh = Engine::graphics_factory->create_mesh();
 
         GameObject::start();

@@ -10,7 +10,8 @@ public:
     }
 
     void awake() override {
-        shader = GameManager::assets_library->get_shader("Object");
+        //shader = GameManager::assets_library->get_shader("Object");
+        material = GameManager::assets_library->get_material("Terrain1");
         mesh = Engine::graphics_factory->create_mesh();
 
         mesh->vertices = {

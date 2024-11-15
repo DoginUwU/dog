@@ -9,11 +9,14 @@
 class MainScene final : public Scene {
 public:
     void start() override {
-        GameManager::assets_library->add_shader("Object", OBJECT_VERTEX_SHADER, OBJECT_FRAGMENT_SHADER);
+        const auto object_shader = GameManager::assets_library->add_shader("Object", OBJECT_VERTEX_SHADER,
+                                                                           OBJECT_FRAGMENT_SHADER);
+        GameManager::assets_library->add_material("Terrain1", {
+                                                      .shader = object_shader
+                                                  });
 
         add_camera(std::make_unique<FlyCamera>());
         add_object(std::make_unique<Timer>());
-        //add_object(std::make_unique<Cube>(Vector3F{0.0f, 0.0f, 0.0f}));
         add_object(std::make_unique<Chunk>());
     }
 

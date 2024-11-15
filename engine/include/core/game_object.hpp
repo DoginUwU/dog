@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 
+#include "material.hpp"
 #include "object.hpp"
 #include "transform.hpp"
 #include "graphics/mesh.hpp"
@@ -26,5 +27,5 @@ protected:
     Transform transform;
 
     std::unique_ptr<Mesh> mesh = nullptr;
-    std::shared_ptr<Shader> shader = nullptr;
+    std::shared_ptr<Material> material = nullptr;
 };
