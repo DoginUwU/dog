@@ -40,19 +40,19 @@ private:
                 if (initial_quad) {
                     initial_quad = false;
 
-                    add_vertex(mesh->vertices, static_cast<float>(x) + -.5f, static_cast<float>(z) + .5f);
-                    add_vertex(mesh->vertices, static_cast<float>(x) + -.5f, static_cast<float>(z) + -.5f);
+                    add_vertex(static_cast<float>(x) + -.5f, static_cast<float>(z) + .5f);
+                    add_vertex(static_cast<float>(x) + -.5f, static_cast<float>(z) + -.5f);
 
-                    add_vertex(mesh->vertices, static_cast<float>(x) + .5f, static_cast<float>(z) + .5f);
-                    add_vertex(mesh->vertices, static_cast<float>(x) + .5f, static_cast<float>(z) + -.5f);
+                    add_vertex(static_cast<float>(x) + .5f, static_cast<float>(z) + .5f);
+                    add_vertex(static_cast<float>(x) + .5f, static_cast<float>(z) + -.5f);
 
                     triangles += 2;
 
                     continue;
                 }
 
-                add_vertex(mesh->vertices, static_cast<float>(x) + .5f, static_cast<float>(z) + .5f);
-                add_vertex(mesh->vertices, static_cast<float>(x) + .5f, static_cast<float>(z) + -.5f);
+                add_vertex(static_cast<float>(x) + .5f, static_cast<float>(z) + .5f);
+                add_vertex(static_cast<float>(x) + .5f, static_cast<float>(z) + -.5f);
 
                 triangles += 2;
             }
@@ -76,11 +76,14 @@ private:
         mesh->update();
     }
 
-    void add_vertex(std::vector<float> &vertices, const float x, const float z) const {
+    void add_vertex(const float x, const float z) const {
         const float y = noise.GetNoise(x, z);
 
-        vertices.push_back(x);
-        vertices.push_back(y * 3);
-        vertices.push_back(z);
+        mesh->vertices.push_back(x);
+        mesh->vertices.push_back(y * 3);
+        mesh->vertices.push_back(z);
+
+        mesh->uvs.push_back(x);
+        mesh->uvs.push_back(z);
     }
 };

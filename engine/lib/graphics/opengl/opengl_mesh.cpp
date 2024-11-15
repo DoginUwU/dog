@@ -22,6 +22,11 @@ void OpenGLMesh::update() {
     glEnableVertexAttribArray(0);
 
     // TODO: handle colours?
+    // glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), static_cast<void *>(nullptr));
+    // glEnableVertexAttribArray(1);
+
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), &uvs);
+    glEnableVertexAttribArray(2);
 
     unbind();
     glBindBuffer(GL_ARRAY_BUFFER, 0);
