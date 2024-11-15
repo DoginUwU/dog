@@ -3,7 +3,7 @@
 
 #include "scene.hpp"
 #include "time.hpp"
-#include "graphics/shader_library.hpp"
+#include "graphics/assets_library.hpp"
 
 class GameManager final {
 public:
@@ -13,7 +13,7 @@ public:
 
     static void update();
 
-    inline static std::unique_ptr<ShaderLibrary> shader_library = nullptr;
+    inline static std::unique_ptr<AssetsLibrary> assets_library = nullptr;
     inline static std::unique_ptr<Scene> active_scene = nullptr;
     inline static std::unique_ptr<Time> time = nullptr;
 };

@@ -37,12 +37,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="chore: add cull face">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/mesh.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/mesh.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/mesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/mesh.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_mesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_mesh.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/resources/shaders/object.vert" beforeDir="false" afterPath="$PROJECT_DIR$/game/resources/shaders/object.vert" afterDir="false" />
+    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="feat: add uvs">
+      <change beforePath="$PROJECT_DIR$/engine/include/core/game_manager.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/game_manager.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/include/engine.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/engine.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/include/graphics/shader_library.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/assets_library.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/shader_library.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/assets_library.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +142,11 @@
     <configuration name="dog" type="CMakeListConfigurationType" factoryName="CMakeListConfigurationFactory" temporary="true">
       <method v="2" />
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="dog-engine" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dog" TARGET_NAME="dog-engine" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -211,7 +215,7 @@
       <workItem from="1731619267379" duration="8960000" />
       <workItem from="1731644130762" duration="4158000" />
       <workItem from="1731671180932" duration="2652000" />
-      <workItem from="1731676203495" duration="333000" />
+      <workItem from="1731676203495" duration="587000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add initial project structure">
       <option name="closed" value="true" />
@@ -373,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731676219012</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="feat: add uvs">
+      <option name="closed" value="true" />
+      <created>1731676760580</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1731676760580</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,6 +429,7 @@
     <MESSAGE value="feat: add initial perlin noise :)" />
     <MESSAGE value="feat: add perlin noise lib" />
     <MESSAGE value="chore: add cull face" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: add cull face" />
+    <MESSAGE value="feat: add uvs" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add uvs" />
   </component>
 </project>

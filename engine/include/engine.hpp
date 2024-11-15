@@ -5,7 +5,7 @@
 #include "core/game_manager.hpp"
 #include "graphics/graphics_factory.hpp"
 #include "graphics/renderer_api.hpp"
-#include "graphics/shader_library.hpp"
+#include "graphics/assets_library.hpp"
 #include "graphics/window/window_api.hpp"
 
 class Engine {

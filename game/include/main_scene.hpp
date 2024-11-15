@@ -9,7 +9,7 @@
 class MainScene final : public Scene {
 public:
     void start() override {
-        GameManager::shader_library->add("Object", OBJECT_VERTEX_SHADER, OBJECT_FRAGMENT_SHADER);
+        GameManager::assets_library->add_shader("Object", OBJECT_VERTEX_SHADER, OBJECT_FRAGMENT_SHADER);
 
         add_camera(std::make_unique<FlyCamera>());
         add_object(std::make_unique<Timer>());

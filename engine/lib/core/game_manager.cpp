@@ -1,7 +1,7 @@
 #include <core/game_manager.hpp>
 
 GameManager::GameManager() {
-    shader_library = std::make_unique<ShaderLibrary>();
+    assets_library = std::make_unique<AssetsLibrary>();
     time = std::make_unique<Time>();
 
     time->start();
