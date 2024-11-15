@@ -4,10 +4,12 @@
 #include "utils/assert.hpp"
 
 void GameObject::draw() const {
-    Assert::check_nullptr(material->shader, "GameObject without shader called to draw");
+    Assert::check_nullptr(material->shader, "GameObject without material shader called to draw");
+    Assert::check_nullptr(material->texture, "GameObject without material texture called to draw");
     Assert::check_nullptr(mesh, "GameObject without mesh called to draw");
     Assert::check_nullptr(GameManager::active_scene->active_camera, "Camera does not exists in active scene");
 
+    material->texture->bind();
     material->shader->bind();
     material->shader->set_uniform("model", transform.matrix);
     material->shader->set_uniform("view", GameManager::active_scene->active_camera->view);
@@ -19,4 +21,5 @@ void GameObject::draw() const {
     mesh->unbind();
 
     material->shader->unbind();
+    material->texture->unbind();
 }

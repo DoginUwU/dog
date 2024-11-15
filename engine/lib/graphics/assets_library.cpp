@@ -37,3 +37,20 @@ std::shared_ptr<Material> AssetsLibrary::get_material(const std::string &name) {
 
     return nullptr;
 }
+
+std::shared_ptr<Texture> AssetsLibrary::add_texture(const std::string &name, const std::string &path) {
+    auto texture = Engine::graphics_factory->create_texture(path);
+    textures[name] = texture;
+
+    return texture;
+}
+
+std::shared_ptr<Texture> AssetsLibrary::get_texture(const std::string &name) {
+    if (const auto element = textures.find(name); element != textures.end()) {
+        return element->second;
+    }
+
+    Logger::error("Failed to find texture with name: %s", name.c_str());
+
+    return nullptr;
+}

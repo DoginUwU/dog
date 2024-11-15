@@ -2,6 +2,7 @@
 #include "opengl_api.hpp"
 #include "opengl_mesh.hpp"
 #include "opengl_shader.hpp"
+#include "opengl_texture.hpp"
 #include "file/file_reader.hpp"
 #include "graphics/graphics_factory.hpp"
 #include "graphics/window/glfw_window.hpp"
@@ -25,6 +26,10 @@ public:
 
     std::unique_ptr<Mesh> create_mesh() override {
         return std::make_unique<OpenGLMesh>();
+    }
+
+    std::shared_ptr<Texture> create_texture(const std::string &path) override {
+        return std::make_unique<OpenGLTexture>(path);
     }
 
     ~OpenGLFactory() override = default;

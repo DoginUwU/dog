@@ -17,7 +17,12 @@ public:
 
     std::shared_ptr<Material> get_material(const std::string &name);
 
+    std::shared_ptr<Texture> add_texture(const std::string &name, const std::string &path);
+
+    std::shared_ptr<Texture> get_texture(const std::string &name);
+
 private:
     std::unordered_map<std::string, std::shared_ptr<Shader> > shaders;
     std::unordered_map<std::string, std::shared_ptr<Material> > materials;
+    std::unordered_map<std::string, std::shared_ptr<Texture> > textures;
 };

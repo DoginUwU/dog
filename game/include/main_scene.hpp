@@ -12,11 +12,11 @@ public:
     void start() override {
         const auto object_shader = GameManager::assets_library->add_shader("Object", OBJECT_VERTEX_SHADER,
                                                                            OBJECT_FRAGMENT_SHADER);
+        const auto grass_texture = GameManager::assets_library->add_texture("grass", "resources/images/grass.png");
         GameManager::assets_library->add_material("Terrain1", {
-                                                      .shader = object_shader
+                                                      .shader = object_shader,
+                                                      .texture = grass_texture,
                                                   });
-
-        auto data = ImageReader::read("resources/images/grass.png");
 
         add_camera(std::make_unique<FlyCamera>());
         add_object(std::make_unique<Timer>());

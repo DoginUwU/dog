@@ -3,6 +3,7 @@
 #include <string>
 
 #include "stb_image.h"
+#include "core/logger.hpp"
 
 struct Image {
     int width;
@@ -25,5 +26,9 @@ public:
             .height = height,
             .data = data,
         };
+    }
+
+    static void free(const Image &image) {
+        stbi_image_free(image.data);
     }
 };

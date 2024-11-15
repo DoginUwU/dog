@@ -14,6 +14,8 @@ public:
 
     virtual std::shared_ptr<Shader> create_shader(const std::string &vertex_path, const std::string &fragment_path) = 0;
 
+    virtual std::shared_ptr<Texture> create_texture(const std::string &path) = 0;
+
     virtual std::unique_ptr<Mesh> create_mesh() = 0;
 
     virtual ~GraphicsFactory() = default;
