@@ -40,7 +40,7 @@ void OpenGLMesh::draw() {
         return;
     }
 
-    glDrawElements(GL_TRIANGLE_STRIP, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, nullptr);
+    glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(indices.size()), GL_UNSIGNED_INT, nullptr);
 }
 
 void OpenGLMesh::unbind() {
