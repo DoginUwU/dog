@@ -13,7 +13,7 @@ public:
 
     std::shared_ptr<Shader> get_shader(const std::string &name);
 
-    void add_material(const std::string &name, const Material &material);
+    std::shared_ptr<Material> add_material(const std::string &name, const Material &material);
 
     std::shared_ptr<Material> get_material(const std::string &name);
 

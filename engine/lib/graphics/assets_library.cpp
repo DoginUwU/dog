@@ -21,8 +21,11 @@ std::shared_ptr<Shader> AssetsLibrary::get_shader(const std::string &name) {
     return nullptr;
 }
 
-void AssetsLibrary::add_material(const std::string &name, const Material &material) {
-    materials[name] = std::make_shared<Material>(material);
+std::shared_ptr<Material> AssetsLibrary::add_material(const std::string &name, const Material &material) {
+    auto shared_material = std::make_shared<Material>(material);
+    materials[name] = shared_material;
+
+    return shared_material;
 }
 
 std::shared_ptr<Material> AssetsLibrary::get_material(const std::string &name) {
