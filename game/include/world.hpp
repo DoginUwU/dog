@@ -1,6 +1,6 @@
 #pragma once
+
 #include <memory>
-#include <vector>
 
 #include "chunk.hpp"
 #include "core/object.hpp"

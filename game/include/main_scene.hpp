@@ -22,7 +22,6 @@ public:
         add_camera(std::make_unique<FlyCamera>());
         add_object(std::make_unique<Timer>());
         add_object(std::make_unique<World>());
-        //add_object(std::make_unique<Chunk>(Vector3F{0.0f, .0f, .0f}));
     }
 
     void update(const float delta_time) override {
