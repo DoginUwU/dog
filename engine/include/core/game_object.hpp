@@ -14,7 +14,7 @@ public:
     void start() override {
     }
 
-    void update(float delta_time) override {
+    void update(const float delta_time) override {
         draw();
     }
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <core/scene.hpp>
 
+#include "chunk.hpp"
 #include "cube.hpp"
 #include "fly_camera.hpp"
 #include "timer.hpp"
@@ -12,7 +13,8 @@ public:
 
         add_camera(std::make_unique<FlyCamera>());
         add_object(std::make_unique<Timer>());
-        add_object(std::make_unique<Cube>());
+        //add_object(std::make_unique<Cube>(Vector3F{0.0f, 0.0f, 0.0f}));
+        add_object(std::make_unique<Chunk>());
     }
 
     void update(const float delta_time) override {
@@ -26,6 +28,6 @@ public:
     ~MainScene() override = default;
 
 private:
-    inline static const std::string OBJECT_VERTEX_SHADER = "resources/shaders/object.vert";
-    inline static const std::string OBJECT_FRAGMENT_SHADER = "resources/shaders/object.frag";
+    const std::string OBJECT_VERTEX_SHADER = "resources/shaders/object.vert";
+    const std::string OBJECT_FRAGMENT_SHADER = "resources/shaders/object.frag";
 };

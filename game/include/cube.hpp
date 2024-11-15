@@ -5,15 +5,19 @@
 
 class Cube final : public GameObject {
 public:
+    explicit Cube(const Vector3F &initial_pos) {
+        transform.translate(initial_pos);
+    }
+
     void awake() override {
         shader = GameManager::shader_library->get("Object");
         mesh = Engine::graphics_factory->create_mesh();
 
         mesh->vertices = {
-            0.5f, 0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            -0.5f, -0.5f, 0.0f,
-            -0.5f, 0.5f, 0.0f
+            1.0f, 0.0f, 1.0f,
+            1.0f, 0.0f, -1.0f,
+            -1.0f, 0.0f, -1.0f,
+            -1.0f, 0.0f, 1.0f,
         };
         mesh->indices = {
             0, 1, 3,
