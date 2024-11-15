@@ -20,15 +20,24 @@ void OpenGLShader::unbind() {
 }
 
 void OpenGLShader::set_uniform(const std::string &name, const Matrix4F &value) {
-    auto uniform_location = get_uniform_location(name);
-
-    if (uniform_location == -1) {
-        uniform_location = glGetUniformLocation(program, name.c_str());
-        uniforms[name] = uniform_location;
-    }
+    const auto uniform_location = get_uniform_location(name);
 
     // TODO: doesnt use glm here
     glUniformMatrix4fv(uniform_location, 1, GL_FALSE, glm::value_ptr(value.data));
+}
+
+void OpenGLShader::set_uniform(const std::string &name, const float value) {
+    const auto uniform_location = get_uniform_location(name);
+
+    // TODO: doesnt use glm here
+    glUniform1fv(uniform_location, 1, &value);
+}
+
+void OpenGLShader::set_uniform(const std::string &name, const Vector3F &value) {
+    const auto uniform_location = get_uniform_location(name);
+
+    // TODO: doesnt use glm here
+    glUniform3fv(uniform_location, 1, glm::value_ptr(value.data));
 }
 
 GLint OpenGLShader::get_uniform_location(const std::string &name) {
@@ -36,7 +45,10 @@ GLint OpenGLShader::get_uniform_location(const std::string &name) {
         return element->second;
     }
 
-    return -1;
+    const auto uniform_location = glGetUniformLocation(program, name.c_str());
+    uniforms[name] = uniform_location;
+
+    return uniform_location;
 }
 
 unsigned int OpenGLShader::link_shaders(const uint *shaders, const size_t size) {

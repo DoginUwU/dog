@@ -1,6 +1,7 @@
 #include <core/game_object.hpp>
 
 #include "core/game_manager.hpp"
+#include "core/light_manager.hpp"
 #include "utils/assert.hpp"
 
 void GameObject::draw() const {
@@ -15,6 +16,8 @@ void GameObject::draw() const {
     material->shader->set_uniform("view", GameManager::active_scene->active_camera->view);
     // TODO: Doesnt call this every tick
     material->shader->set_uniform("projection", GameManager::active_scene->active_camera->projection);
+
+    LightManager::upload_lighting_data(material->shader, GameManager::active_scene);
 
     mesh->bind();
     mesh->draw();

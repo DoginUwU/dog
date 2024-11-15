@@ -23,5 +23,6 @@ private:
     uint32_t vao{};
     uint32_t vbo{};
     uint32_t uv_vbo{};
+    uint32_t normal_vbo{};
     uint32_t ebo{};
 };

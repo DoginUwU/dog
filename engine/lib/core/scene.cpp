@@ -12,6 +12,10 @@ void Scene::add_camera(std::unique_ptr<Camera> camera) {
     active_camera = std::move(camera);
 }
 
+void Scene::add_light(std::unique_ptr<DirectionalLight> directional_light) {
+    directional_lights.push_back(std::move(directional_light));
+}
+
 void Scene::update(const float delta_time) {
     if (active_camera != nullptr) {
         active_camera->update(delta_time);

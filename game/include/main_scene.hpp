@@ -22,6 +22,14 @@ public:
         add_camera(std::make_unique<FlyCamera>());
         add_object(std::make_unique<Timer>());
         add_object(std::make_unique<World>());
+        add_light(std::make_unique<DirectionalLight>(DirectionalLight{
+            .base = {
+                .color = Vector3F{0.6f, 0.27f, 1.0f},
+                .ambient_intensity = 4.0f,
+                .diffuse_intensity = 1.0f,
+            },
+            .direction = Vector3F{5.0f, 1.0f, 1.0f},
+        }));
     }
 
     void update(const float delta_time) override {
@@ -35,6 +43,6 @@ public:
     ~MainScene() override = default;
 
 private:
-    const std::string OBJECT_VERTEX_SHADER = "resources/shaders/object.vert";
-    const std::string OBJECT_FRAGMENT_SHADER = "resources/shaders/object.frag";
+    const std::string OBJECT_VERTEX_SHADER = "resources/shaders/object/object.vert";
+    const std::string OBJECT_FRAGMENT_SHADER = "resources/shaders/object/object.frag";
 };

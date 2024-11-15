@@ -17,6 +17,10 @@ public:
 
     virtual void set_uniform(const std::string &name, const Matrix4F &value) = 0;
 
+    virtual void set_uniform(const std::string &name, const Vector3F &value) = 0;
+
+    virtual void set_uniform(const std::string &name, float value) = 0;
+
     virtual ~Shader() = default;
 
 private:

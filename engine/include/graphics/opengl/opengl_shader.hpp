@@ -14,6 +14,10 @@ public:
 
     void set_uniform(const std::string &name, const Matrix4F &value) override;
 
+    void set_uniform(const std::string &name, const Vector3F &value) override;
+
+    void set_uniform(const std::string &name, float value) override;
+
     ~OpenGLShader() override;
 
 private:
