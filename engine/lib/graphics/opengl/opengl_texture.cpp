@@ -14,7 +14,13 @@ OpenGLTexture::OpenGLTexture(const std::string &path) {
     glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTextureParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.width, image.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.data);
+    auto format = GL_RGB;
+
+    if (image.type == ImageType::PNG) {
+        format = GL_RGBA;
+    }
+
+    glTexImage2D(GL_TEXTURE_2D, 0, format, image.width, image.height, 0, format, GL_UNSIGNED_BYTE, image.data);
     glGenerateMipmap(GL_TEXTURE_2D);
 
     ImageReader::free(image);

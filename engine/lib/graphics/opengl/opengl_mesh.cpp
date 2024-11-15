@@ -5,6 +5,7 @@ OpenGLMesh::OpenGLMesh() {
     glGenVertexArrays(1, &vao);
     glGenBuffers(1, &vbo);
     glGenBuffers(1, &ebo);
+    glGenBuffers(1, &uv_vbo);
 }
 
 void OpenGLMesh::update() {
@@ -25,7 +26,11 @@ void OpenGLMesh::update() {
     // glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), static_cast<void *>(nullptr));
     // glEnableVertexAttribArray(1);
 
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), &uvs);
+    glBindBuffer(GL_ARRAY_BUFFER, uv_vbo);
+    glBufferData(GL_ARRAY_BUFFER, static_cast<GLsizeiptr>(uvs.size() * sizeof(float)), uvs.data(),
+                 GL_STATIC_DRAW);
+
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), static_cast<void *>(nullptr));
     glEnableVertexAttribArray(2);
 
     unbind();
@@ -54,6 +59,7 @@ void OpenGLMesh::unbind() {
 
 OpenGLMesh::~OpenGLMesh() {
     glDeleteBuffers(1, &vbo);
+    glDeleteBuffers(1, &uv_vbo);
     glDeleteBuffers(1, &ebo);
     glDeleteVertexArrays(1, &vao);
 }

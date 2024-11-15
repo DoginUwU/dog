@@ -46,6 +46,11 @@ private:
                     add_vertex(static_cast<float>(x) + .5f, static_cast<float>(z) + .5f);
                     add_vertex(static_cast<float>(x) + .5f, static_cast<float>(z) + -.5f);
 
+                    add_uv(static_cast<float>(x) + 0.0f, static_cast<float>(z) + 1.0f);
+                    add_uv(static_cast<float>(x) + 0.0f, static_cast<float>(z) + 0.0f);
+                    add_uv(static_cast<float>(x) + 1.0f, static_cast<float>(z) + 1.0f);
+                    add_uv(static_cast<float>(x) + 1.0f, static_cast<float>(z) + 0.0f);
+
                     triangles += 2;
 
                     continue;
@@ -53,6 +58,8 @@ private:
 
                 add_vertex(static_cast<float>(x) + .5f, static_cast<float>(z) + .5f);
                 add_vertex(static_cast<float>(x) + .5f, static_cast<float>(z) + -.5f);
+                add_uv(static_cast<float>(x) + 1.0f, static_cast<float>(z) + 1.0f);
+                add_uv(static_cast<float>(x) + 1.0f, static_cast<float>(z) + 0.0f);
 
                 triangles += 2;
             }
@@ -82,8 +89,10 @@ private:
         mesh->vertices.push_back(x);
         mesh->vertices.push_back(y * 3);
         mesh->vertices.push_back(z);
+    }
 
-        mesh->uvs.push_back(x);
-        mesh->uvs.push_back(z);
+    void add_uv(const float u, const float v) const {
+        mesh->uvs.push_back(u);
+        mesh->uvs.push_back(v);
     }
 };
