@@ -5,6 +5,7 @@
 #include "cube.hpp"
 #include "fly_camera.hpp"
 #include "timer.hpp"
+#include "file/image_reader.hpp"
 
 class MainScene final : public Scene {
 public:
@@ -14,6 +15,8 @@ public:
         GameManager::assets_library->add_material("Terrain1", {
                                                       .shader = object_shader
                                                   });
+
+        auto data = ImageReader::read("resources/images/grass.png");
 
         add_camera(std::make_unique<FlyCamera>());
         add_object(std::make_unique<Timer>());
