@@ -4,10 +4,10 @@
 #include "core/game_object.hpp"
 
 struct TerrainRandomizer {
+    float gain;
     float frequency;
     int octaves;
     float lacunarity;
-    float gain;
     float strength;
 };
 
@@ -38,10 +38,10 @@ public:
 
 private:
     const TerrainRandomizer PLAIN_DEFAULT = {
+        .gain = 0.13f,
         .frequency = 0.025f,
         .octaves = 4,
         .lacunarity = 8,
-        .gain = 0.13f,
         .strength = 2,
     };
 
@@ -57,10 +57,11 @@ private:
     void generate_mesh(const TerrainRandomizer &randomizer) {
         noise.SetNoiseType(FastNoiseLite::NoiseType_OpenSimplex2);
         noise.SetFractalType(FastNoiseLite::FractalType_FBm);
+
+        noise.SetFractalGain(randomizer.gain);
         noise.SetFrequency(randomizer.frequency);
         noise.SetFractalOctaves(randomizer.octaves);
         noise.SetFractalLacunarity(randomizer.lacunarity);
-        noise.SetFractalGain(randomizer.gain);
         noise.SetFractalWeightedStrength(randomizer.strength);
 
         for (int z = 0; z < grid_size_z; z++) {

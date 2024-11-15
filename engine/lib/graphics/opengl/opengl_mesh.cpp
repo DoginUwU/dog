@@ -40,7 +40,6 @@ void OpenGLMesh::update() {
     updated_first_time = true;
 }
 
-
 void OpenGLMesh::bind() {
     glBindVertexArray(vao);
 }
