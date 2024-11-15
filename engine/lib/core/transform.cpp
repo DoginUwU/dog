@@ -2,6 +2,11 @@
 
 Transform::Transform() = default;
 
+void Transform::set_position(const Vector3F &new_position) {
+    matrix.set_position(new_position);
+}
+
+
 void Transform::translate(const Vector3F &translation) {
     matrix.translate(translation);
 }

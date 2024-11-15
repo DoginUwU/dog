@@ -4,6 +4,10 @@
 
 class Chunk final : public GameObject {
 public:
+    explicit Chunk(const Vector3F &position) {
+        transform.set_position(position * Vector3F{grid_size_x, 0, grid_size_z});
+    }
+
     void start() override {
         material = GameManager::assets_library->get_material("Terrain1");
         mesh = Engine::graphics_factory->create_mesh();
@@ -84,7 +88,7 @@ private:
     }
 
     void add_vertex(const float x, const float z) const {
-        const float y = noise.GetNoise(x, z);
+        const float y = noise.GetNoise(x + transform.position().x(), z + transform.position().z());
 
         mesh->vertices.push_back(x);
         mesh->vertices.push_back(y * 3);

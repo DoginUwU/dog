@@ -23,6 +23,10 @@ public:
         data = glm::lookAt(eye.data, center.data, up.data);
     }
 
+    void set_position(const Vector3F &new_position) {
+        data = glm::translate(Matrix4F(1.0f).data, new_position.data);
+    }
+
     void translate(const Vector3F &translation) {
         data = glm::translate(data, translation.data);
     }

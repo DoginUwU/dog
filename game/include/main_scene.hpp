@@ -5,6 +5,7 @@
 #include "cube.hpp"
 #include "fly_camera.hpp"
 #include "timer.hpp"
+#include "world.hpp"
 #include "file/image_reader.hpp"
 
 class MainScene final : public Scene {
@@ -20,7 +21,8 @@ public:
 
         add_camera(std::make_unique<FlyCamera>());
         add_object(std::make_unique<Timer>());
-        add_object(std::make_unique<Chunk>());
+        add_object(std::make_unique<World>());
+        //add_object(std::make_unique<Chunk>(Vector3F{0.0f, .0f, .0f}));
     }
 
     void update(const float delta_time) override {

@@ -15,6 +15,9 @@ public:
     Vector3F(const double x, const double y, const double z) : data(x, y, z) {
     }
 
+    Vector3F(const unsigned int x, const unsigned int y, const unsigned int z) : data(x, y, z) {
+    }
+
     explicit Vector3F(const glm::vec<3, float> value) : data(value) {
     }
 

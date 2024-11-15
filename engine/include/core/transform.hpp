@@ -8,6 +8,8 @@ public:
 
     [[nodiscard]] Vector3F position() const;
 
+    void set_position(const Vector3F &new_position);
+
     void translate(const Vector3F &translation);
 
     void scale(const Vector3F &factor);
