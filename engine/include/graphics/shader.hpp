@@ -21,6 +21,8 @@ public:
 
     virtual void set_uniform(const std::string &name, float value) = 0;
 
+    virtual void set_uniform(const std::string &name, bool value) = 0;
+
     virtual ~Shader() = default;
 
 private:

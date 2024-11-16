@@ -17,10 +17,11 @@ add_subdirectory(dependencies/glfw)
 add_subdirectory(dependencies/glad)
 add_subdirectory(dependencies/glm)
 add_subdirectory(dependencies/stb)
+add_subdirectory(dependencies/tiny_obj_loader)
 
 set_target_properties(glm PROPERTIES CXX_STANDARD 23)
 set_target_properties(glm PROPERTIES CXX_STANDARD_REQUIRED ON)
 
 find_package(OpenGL REQUIRED)
 
-target_link_libraries(dog-engine glfw glad glm stb ${OPENGL_LIBRARIES})
+target_link_libraries(dog-engine glfw glad glm stb tiny_obj_loader ${OPENGL_LIBRARIES})

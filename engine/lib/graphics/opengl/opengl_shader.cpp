@@ -40,6 +40,13 @@ void OpenGLShader::set_uniform(const std::string &name, const Vector3F &value) {
     glUniform3fv(uniform_location, 1, glm::value_ptr(value.data));
 }
 
+void OpenGLShader::set_uniform(const std::string &name, const bool value) {
+    const auto uniform_location = get_uniform_location(name);
+
+    // TODO: doesnt use glm here
+    glUniform1i(uniform_location, value);
+}
+
 GLint OpenGLShader::get_uniform_location(const std::string &name) {
     if (const auto element = uniforms.find(name); element != uniforms.end()) {
         return element->second;

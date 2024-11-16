@@ -14,10 +14,13 @@ public:
 
     virtual ~Mesh() = default;
 
+    void calculate_normals();
+
     void optimize();
 
     std::vector<float> vertices;
     std::vector<unsigned int> indices;
     std::vector<float> uvs;
     std::vector<float> normals;
+    std::vector<float> colors;
 };

@@ -4,6 +4,7 @@
 #include "chunk.hpp"
 #include "cube.hpp"
 #include "fly_camera.hpp"
+#include "monkey.hpp"
 #include "timer.hpp"
 #include "world.hpp"
 #include "file/image_reader.hpp"
@@ -22,14 +23,23 @@ public:
                                                       .shader = object_shader,
                                                       .texture = grass_texture,
                                                   });
+        GameManager::assets_library->add_material("Monkey", {
+                                                      .ambient = Vector3F{},
+                                                      .diffuse = Vector3F{},
+                                                      .specular = Vector3F{},
+                                                      .shininess = 1.0f,
+                                                      .shader = object_shader,
+                                                      .texture = nullptr,
+                                                  });
 
         add_camera(std::make_unique<FlyCamera>());
+        add_object(std::make_unique<Monkey>());
         add_object(std::make_unique<Timer>());
         add_object(std::make_unique<World>());
         add_light(std::make_unique<DirectionalLight>(DirectionalLight{
             .base = {
                 .color = Vector3F{1.0, 1.0, 1.0},
-                .ambient = 1.0f,
+                .ambient = 0.1f,
                 .diffuse = 1.0f,
             },
             .direction = Vector3F{-0.2f, -1.0f, -0.3f},

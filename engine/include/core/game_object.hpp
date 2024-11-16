@@ -5,7 +5,6 @@
 #include "object.hpp"
 #include "transform.hpp"
 #include "graphics/mesh.hpp"
-#include "graphics/shader.hpp"
 
 class GameObject : public Object {
 public:

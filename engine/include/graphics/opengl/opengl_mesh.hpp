@@ -24,5 +24,6 @@ private:
     uint32_t vbo{};
     uint32_t uv_vbo{};
     uint32_t normal_vbo{};
+    uint32_t color_vbo{};
     uint32_t ebo{};
 };

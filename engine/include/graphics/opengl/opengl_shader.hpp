@@ -18,6 +18,8 @@ public:
 
     void set_uniform(const std::string &name, float value) override;
 
+    void set_uniform(const std::string &name, bool value) override;
+
     ~OpenGLShader() override;
 
 private:

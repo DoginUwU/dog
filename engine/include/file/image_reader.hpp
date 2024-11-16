@@ -33,7 +33,7 @@ public:
 
         auto type = ImageType::JPG;
 
-        if (Checks::ends_with(path, ".png")) {
+        if (channels == 4) {
             type = ImageType::PNG;
         }
 

@@ -2,6 +2,7 @@
 
 #include "fast_noise_lite.hpp"
 #include "core/game_object.hpp"
+#include "file/object_reader.hpp"
 
 struct TerrainRandomizer {
     float gain;
@@ -9,6 +10,7 @@ struct TerrainRandomizer {
     int octaves;
     float lacunarity;
     float strength;
+    float multiplier;
 };
 
 struct ObjectsRandomizer {
@@ -43,6 +45,16 @@ private:
         .octaves = 4,
         .lacunarity = 8,
         .strength = 2,
+        .multiplier = 3,
+    };
+
+    const TerrainRandomizer MOUNTAINOUS_DEFAULT = {
+        .gain = 0.25f,
+        .frequency = 0.05f,
+        .octaves = 6,
+        .lacunarity = 2.5f,
+        .strength = 5,
+        .multiplier = 5,
     };
 
     FastNoiseLite noise;
@@ -72,11 +84,15 @@ private:
                 if (initial_quad) {
                     initial_quad = false;
 
-                    add_vertex(static_cast<float>(x) + -(quad_scale / 2), static_cast<float>(z) + (quad_scale / 2));
-                    add_vertex(static_cast<float>(x) + -(quad_scale / 2), static_cast<float>(z) + -(quad_scale / 2));
+                    add_vertex(static_cast<float>(x) + -(quad_scale / 2), static_cast<float>(z) + (quad_scale / 2),
+                               randomizer);
+                    add_vertex(static_cast<float>(x) + -(quad_scale / 2), static_cast<float>(z) + -(quad_scale / 2),
+                               randomizer);
 
-                    add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + (quad_scale / 2));
-                    add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + -(quad_scale / 2));
+                    add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + (quad_scale / 2),
+                               randomizer);
+                    add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + -(quad_scale / 2),
+                               randomizer);
 
                     add_uv(static_cast<float>(x) + 0.0f, static_cast<float>(z) + 1.0f);
                     add_uv(static_cast<float>(x) + 0.0f, static_cast<float>(z) + 0.0f);
@@ -88,8 +104,10 @@ private:
                     continue;
                 }
 
-                add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + (quad_scale / 2));
-                add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + -(quad_scale / 2));
+                add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + (quad_scale / 2),
+                           randomizer);
+                add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + -(quad_scale / 2),
+                           randomizer);
                 add_uv(static_cast<float>(x) + 1.0f, static_cast<float>(z) + 1.0f);
                 add_uv(static_cast<float>(x) + 1.0f, static_cast<float>(z) + 0.0f);
 
@@ -97,13 +115,13 @@ private:
             }
 
             for (int i = 0; i < triangles / 2; ++i) {
-                mesh->indices.push_back(vertex_index + 0);
+                mesh->indices.push_back(vertex_index + 3);
                 mesh->indices.push_back(vertex_index + 1);
-                mesh->indices.push_back(vertex_index + 3);
-
                 mesh->indices.push_back(vertex_index + 0);
-                mesh->indices.push_back(vertex_index + 3);
+
                 mesh->indices.push_back(vertex_index + 2);
+                mesh->indices.push_back(vertex_index + 3);
+                mesh->indices.push_back(vertex_index + 0);
 
                 vertex_index += 2;
             }
@@ -112,14 +130,15 @@ private:
         }
 
         mesh->optimize();
+        mesh->calculate_normals();
         mesh->update();
     }
 
-    void add_vertex(const float x, const float z) const {
+    void add_vertex(const float x, const float z, const TerrainRandomizer &randomizer) const {
         const float y = noise.GetNoise(x + chunk_position_x, z + chunk_position_z);
 
         mesh->vertices.push_back(x);
-        mesh->vertices.push_back(y * 3);
+        mesh->vertices.push_back(y * randomizer.multiplier);
         mesh->vertices.push_back(z);
     }
 

@@ -48,6 +48,13 @@ public:
         return result;
     }
 
+    Vector3F operator-(const Vector3F &other) const {
+        Vector3F result;
+        result.data = data - other.data;
+
+        return result;
+    }
+
     Vector3F operator*(const Vector3F &other) const {
         Vector3F result;
         result.data = data * other.data;

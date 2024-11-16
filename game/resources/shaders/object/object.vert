@@ -14,10 +14,18 @@ uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
 
+uniform bool has_colors;
+
 void main() {
     frag_position = vec3(model * vec4(pos, 1.0f));
     frag_normal = mat3(transpose(inverse(model))) * m_normal;
-    vertex_color = vec4(1.0, 1.0, 1.0, 0.0);
+
+    if (has_colors) {
+        vertex_color = vec4(color, 0.0);
+    } else {
+        vertex_color = vec4(1.0, 1.0, 1.0, 0.0);
+    }
+
     texture_coord = vec2(m_texture_coord.x, m_texture_coord.y);
 
     gl_Position = projection * view * vec4(frag_position, 1.0);

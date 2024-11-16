@@ -31,6 +31,7 @@ uniform vec3 camera_position;
 uniform sampler2D texture1;
 uniform Material material;
 uniform DirectionalLight directional_lights[MAX_DIRECTIONAL_LIGHTS];
+uniform bool has_texture;
 
 vec4 get_directional_light(DirectionalLight directional_light, vec3 normal) {
     vec3 light_direction = normalize(-directional_light.direction);
@@ -59,9 +60,13 @@ vec4 get_directional_light(DirectionalLight directional_light, vec3 normal) {
 }
 
 void main() {
-    vec4 texture_color = texture(texture1, texture_coord);
+    vec4 result_color = vertex_color;
+
+    if (has_texture) {
+        result_color *= texture(texture1, texture_coord);
+    }
 
     vec4 lighinting_result = get_directional_light(directional_lights[0], frag_normal);
 
-    frag_color = texture_color * lighinting_result;
+    frag_color = result_color * lighinting_result;
 }
