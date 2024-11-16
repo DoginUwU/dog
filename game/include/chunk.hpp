@@ -64,7 +64,6 @@ private:
     unsigned int grid_size_z = 100;
     float chunk_position_x = 0;
     float chunk_position_z = 0;
-    float quad_scale = 1.0f;
 
     void generate_mesh(const TerrainRandomizer &randomizer) {
         noise.SetNoiseType(FastNoiseLite::NoiseType_OpenSimplex2);
@@ -84,14 +83,14 @@ private:
                 if (initial_quad) {
                     initial_quad = false;
 
-                    add_vertex(static_cast<float>(x) + -(quad_scale / 2), static_cast<float>(z) + (quad_scale / 2),
+                    add_vertex(static_cast<float>(x), static_cast<float>(z) + 1,
                                randomizer);
-                    add_vertex(static_cast<float>(x) + -(quad_scale / 2), static_cast<float>(z) + -(quad_scale / 2),
+                    add_vertex(static_cast<float>(x), static_cast<float>(z),
                                randomizer);
 
-                    add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + (quad_scale / 2),
+                    add_vertex(static_cast<float>(x) + 1, static_cast<float>(z) + 1,
                                randomizer);
-                    add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + -(quad_scale / 2),
+                    add_vertex(static_cast<float>(x) + 1, static_cast<float>(z),
                                randomizer);
 
                     add_uv(static_cast<float>(x) + 0.0f, static_cast<float>(z) + 1.0f);
@@ -104,10 +103,11 @@ private:
                     continue;
                 }
 
-                add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + (quad_scale / 2),
+                add_vertex(static_cast<float>(x) + 1, static_cast<float>(z) + 1,
                            randomizer);
-                add_vertex(static_cast<float>(x) + (quad_scale / 2), static_cast<float>(z) + -(quad_scale / 2),
+                add_vertex(static_cast<float>(x) + 1, static_cast<float>(z),
                            randomizer);
+
                 add_uv(static_cast<float>(x) + 1.0f, static_cast<float>(z) + 1.0f);
                 add_uv(static_cast<float>(x) + 1.0f, static_cast<float>(z) + 0.0f);
 

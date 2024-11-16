@@ -29,9 +29,9 @@ struct Material {
 
 uniform vec3 camera_position;
 uniform sampler2D texture1;
+uniform bool has_texture;
 uniform Material material;
 uniform DirectionalLight directional_lights[MAX_DIRECTIONAL_LIGHTS];
-uniform bool has_texture;
 
 vec4 get_directional_light(DirectionalLight directional_light, vec3 normal) {
     vec3 light_direction = normalize(-directional_light.direction);

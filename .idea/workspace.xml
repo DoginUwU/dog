@@ -39,31 +39,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="chore: fix fragment shader">
-      <change afterPath="$PROJECT_DIR$/engine/dependencies/tiny_obj_loader/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/dependencies/tiny_obj_loader/tiny_obj_loader.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/dependencies/tiny_obj_loader/tiny_obj_loader.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/engine/include/file/object_reader.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/include/monkey.hpp" afterDir="false" />
+    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="chore: add monkey model">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/engine/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/core/game_object.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/game_object.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/file/image_reader.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/file/image_reader.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/mesh.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/mesh.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_mesh.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_mesh.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_shader.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/opengl/opengl_shader.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/shader.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/shader.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/math/vector_3f.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/math/vector_3f.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/core/game_object.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/core/game_object.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/mesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/mesh.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_api.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_api.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_mesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_mesh.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_shader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_shader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_texture.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/graphics/opengl/opengl_texture.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/include/chunk.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/chunk.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/include/main_scene.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/main_scene.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/include/monkey.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/monkey.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/include/world.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/world.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/resources/shaders/object/object.frag" beforeDir="false" afterPath="$PROJECT_DIR$/game/resources/shaders/object/object.frag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/resources/shaders/object/object.vert" beforeDir="false" afterPath="$PROJECT_DIR$/game/resources/shaders/object/object.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +76,16 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
@@ -303,7 +295,7 @@
       <workItem from="1731644130762" duration="4158000" />
       <workItem from="1731671180932" duration="2652000" />
       <workItem from="1731676203495" duration="28847000" />
-      <workItem from="1731755739784" duration="5542000" />
+      <workItem from="1731755739784" duration="15434000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add initial project structure">
       <option name="closed" value="true" />
@@ -569,7 +561,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731721705981</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="feat: add obj loader and fix some shaders lights issues">
+      <option name="closed" value="true" />
+      <created>1731761425568</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1731761425568</updated>
+    </task>
+    <task id="LOCAL-00035" summary="chore: add monkey model">
+      <option name="closed" value="true" />
+      <created>1731761437811</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1731761437811</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -592,8 +600,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix: some compile warnings" />
-    <MESSAGE value="chore: change ShaderLibrary loc" />
     <MESSAGE value="feat: add initial mat4 and transform" />
     <MESSAGE value="feat: add matrix translation" />
     <MESSAGE value="feat: add matrix scale" />
@@ -617,6 +623,8 @@
     <MESSAGE value="feat: add initial directional lights" />
     <MESSAGE value="wip: specular light filter" />
     <MESSAGE value="chore: fix fragment shader" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: fix fragment shader" />
+    <MESSAGE value="feat: add obj loader and fix some shaders lights issues" />
+    <MESSAGE value="chore: add monkey model" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: add monkey model" />
   </component>
 </project>
