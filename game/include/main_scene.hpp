@@ -32,7 +32,7 @@ public:
                 .ambient = 1.0f,
                 .diffuse = 1.0f,
             },
-            .direction = Vector3F{5.0f, 1.0f, 1.0f},
+            .direction = Vector3F{-0.2f, -1.0f, -0.3f},
         }));
     }
 

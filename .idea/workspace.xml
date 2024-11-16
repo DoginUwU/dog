@@ -38,13 +38,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="feat: add initial directional lights">
+    <list default="true" id="d5a2bf87-538c-488e-8c7a-80fce25a9cf3" name="Changes" comment="wip: specular light filter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/core/camera.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/camera.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/core/material.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/core/material.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/include/graphics/light/base_light.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/include/graphics/light/base_light.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/core/game_object.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/core/game_object.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/lib/core/light_manager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/engine/lib/core/light_manager.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/include/main_scene.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/include/main_scene.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/resources/shaders/object/object.frag" beforeDir="false" afterPath="$PROJECT_DIR$/game/resources/shaders/object/object.frag" afterDir="false" />
     </list>
@@ -275,7 +270,7 @@
       <workItem from="1731619267379" duration="8960000" />
       <workItem from="1731644130762" duration="4158000" />
       <workItem from="1731671180932" duration="2652000" />
-      <workItem from="1731676203495" duration="25566000" />
+      <workItem from="1731676203495" duration="26628000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add initial project structure">
       <option name="closed" value="true" />
@@ -525,7 +520,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731707786407</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="wip: specular light filter">
+      <option name="closed" value="true" />
+      <created>1731720822657</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1731720822657</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -548,7 +551,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore: change something \o" />
     <MESSAGE value="refactor: shaders/mesh to abstract graphics api calls" />
     <MESSAGE value="fix: some compile warnings" />
     <MESSAGE value="chore: change ShaderLibrary loc" />
@@ -573,6 +575,7 @@
     <MESSAGE value="chore: add TerrainRandomizer struct for each PerlinNoise config" />
     <MESSAGE value="." />
     <MESSAGE value="feat: add initial directional lights" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add initial directional lights" />
+    <MESSAGE value="wip: specular light filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip: specular light filter" />
   </component>
 </project>
