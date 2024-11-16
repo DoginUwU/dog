@@ -15,6 +15,10 @@ public:
                                                                            OBJECT_FRAGMENT_SHADER);
         const auto grass_texture = GameManager::assets_library->add_texture("grass", "resources/images/grass.png");
         GameManager::assets_library->add_material("Terrain1", {
+                                                      .ambient = Vector3F{},
+                                                      .diffuse = Vector3F{},
+                                                      .specular = Vector3F{},
+                                                      .shininess = 1.0f,
                                                       .shader = object_shader,
                                                       .texture = grass_texture,
                                                   });
@@ -24,9 +28,9 @@ public:
         add_object(std::make_unique<World>());
         add_light(std::make_unique<DirectionalLight>(DirectionalLight{
             .base = {
-                .color = Vector3F{0.6f, 0.27f, 1.0f},
-                .ambient_intensity = 4.0f,
-                .diffuse_intensity = 1.0f,
+                .color = Vector3F{1.0, 1.0, 1.0},
+                .ambient = 1.0f,
+                .diffuse = 1.0f,
             },
             .direction = Vector3F{5.0f, 1.0f, 1.0f},
         }));

@@ -17,10 +17,10 @@ void LightManager::upload_lighting_data(const std::shared_ptr<Shader> &shader, c
         const auto &light = scene->directional_lights[i];
 
         shader->set_uniform("directional_lights[" + std::to_string(i) + "].base.color", light->base.color);
-        shader->set_uniform("directional_lights[" + std::to_string(i) + "].base.ambient_intensity",
-                            light->base.ambient_intensity);
-        shader->set_uniform("directional_lights[" + std::to_string(i) + "].base.diffuse_intensity",
-                            light->base.diffuse_intensity);
+        shader->set_uniform("directional_lights[" + std::to_string(i) + "].base.ambient",
+                            light->base.ambient);
+        shader->set_uniform("directional_lights[" + std::to_string(i) + "].base.diffuse",
+                            light->base.diffuse);
 
         shader->set_uniform("directional_lights[" + std::to_string(i) + "].direction", light->direction);
     }

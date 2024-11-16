@@ -3,6 +3,6 @@
 
 struct BaseLight {
     Vector3F color;
-    float ambient_intensity{};
-    float diffuse_intensity{};
+    float ambient{};
+    float diffuse{};
 };

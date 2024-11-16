@@ -16,6 +16,12 @@ void GameObject::draw() const {
     material->shader->set_uniform("view", GameManager::active_scene->active_camera->view);
     // TODO: Doesnt call this every tick
     material->shader->set_uniform("projection", GameManager::active_scene->active_camera->projection);
+    material->shader->set_uniform("camera_position", GameManager::active_scene->active_camera->position);
+
+    material->shader->set_uniform("material.ambient", material->ambient);
+    material->shader->set_uniform("material.diffuse", material->diffuse);
+    material->shader->set_uniform("material.specular", material->specular);
+    material->shader->set_uniform("material.shininess", material->shininess);
 
     LightManager::upload_lighting_data(material->shader, GameManager::active_scene);
 
